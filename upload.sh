@@ -17,3 +17,7 @@ git push -f https://github.com/Shuaiwen-Cui/MCU_NODE_ESP32.git main
 # git remote add origin https://github.com/Shuaiwen-Cui/MCU_NODE_ESP32.git
 # git push -u origin main
 echo '--------push to GitHub successfully--------'
+
+cd ./MCU_DOC/
+mkdocs gh-deploy
+echo '--------deployed to Github Pages sucessfully--------'
