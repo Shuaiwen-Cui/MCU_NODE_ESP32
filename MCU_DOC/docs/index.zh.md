@@ -3,3 +3,17 @@
 
 ![封面](cover.jpg)
 
+## 开发参考
+
+<div class="grid cards" markdown>
+
+-   :material-book:{ .lg .middle } __ATK DNESP32S3 开发板__
+
+    ---
+
+    ATK DNESP32S3 dvelopment board resources.
+
+
+    [:octicons-arrow-right-24: <a href="http://47.111.11.73/docs/boards/esp32/ATK-DNESP32S3.html" target="_blank"> Portal </a>](#)
+
+</div>
