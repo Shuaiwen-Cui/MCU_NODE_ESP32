@@ -116,6 +116,8 @@ plugins:
           nav_translations: # note that all titles and subtitles in the navigation bar that need to be translated can be put here, but with no indentation
             ABOUT: 关于
             ARCHITECTURE: 架构
+            ESP_IDF: 乐鑫物联网开发框架(ESP-IDF)
+            MICROPYTHON: MICROPYTHON
             MAIN-CONTROL: 主控
             PERCEPTION: 感知
             COMMUNICATION: 通信
@@ -249,6 +251,10 @@ nav:
       - "index.md"
   - ARCHITECTURE:
       - "ARCHITECTURE/architecture.md"
+      - ESP_IDF: 
+          - "ARCHITECTURE/ESP_IDF/esp_idf.md"
+      - MICROPYTHON: 
+          - "ARCHITECTURE/MICROPYTHON/micropython.md"
   - MAIN-CONTROL:
       - "MAIN-CONTROL/main-control.md"
   - PERCEPTION:
