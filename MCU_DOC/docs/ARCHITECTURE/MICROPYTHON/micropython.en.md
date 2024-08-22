@@ -3,6 +3,25 @@
 !!! info
     For ESP32 development, MICROPYTHON is actually also based on ESP_IDF. Compared to ESP_IDF, MICROPYTHON is more suitable for rapid prototyping and development, yet it has lower efficiency and fewer resources.
 
+## ESP32 MICROPYTHON PROGRAMMING
+
+For ESP32 development using MICROPYTHON, we have two major steps:
+
+1. Prepare and Install MICROPYTHON firmware on ESP32. (Sometimes, we need to customize the firmware for specific applications.)
+2. Develop and Run MICROPYTHON scripts on ESP32.
+
+<div class="grid cards" markdown>
+
+-   :simple-micropython:{ .lg .middle } __MICROPYTHON DEV IDE__
+
+    ---
+
+    VSCODE + MICROPYTHON
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1im411S7LT/?spm_id_from=333.788&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> Portal </a>](#)
+
+</div>
+
 ## MICROPYTHON INTRODUCTION
 
 MICROPYTHON is a lean and efficient implementation of the Python 3 programming language that includes a small subset of the Python standard library and is optimized to run on microcontrollers and in constrained environments. It is designed to be easily ported to new microcontroller architectures. MICROPYTHON is a full Python compiler and runtime that runs on the microcontroller hardware. It is designed to be easy to use and understand, and it is especially suitable for rapid prototyping and development.
@@ -57,3 +76,4 @@ MICROPYTHON is a lean and efficient implementation of the Python 3 programming l
     [:octicons-arrow-right-24: <a href="https://docs.micropython.org/en/latest/" target="_blank"> Portal </a>](#)
 
 </div>
+

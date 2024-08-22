@@ -3,6 +3,25 @@
 !!! info
     对于 ESP32 开发，MICROPYTHON 实际上也是基于 ESP_IDF 的。与 ESP_IDF 相比，MICROPYTHON 更适合快速原型设计和开发，但效率较低，资源较少。
 
+## ESP32 MICROPYTHON 编程
+
+对于使用micropython的ESP32编程，我们有两个主要步骤：
+
+1. 准备和安装micropython固件。有时候需要定制固件以支持特定的硬件功能。
+2. 开发和运行micropython脚本。
+
+<div class="grid cards" markdown>
+
+-   :simple-micropython:{ .lg .middle } __MICROPYTHON DEV IDE__
+
+    ---
+
+    VSCODE + MICROPYTHON
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1im411S7LT/?spm_id_from=333.788&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> Portal </a>](#)
+
+</div>
+
 ## MICROPYTHON 简介
 
 MICROPYTHON 是 Python 3 编程语言的精简高效实现，包含 Python 标准库的一个小子集，经过优化以在微控制器和受限环境中运行。它被设计为易于移植到新的微控制器架构。MICROPYTHON 是一个完整的 Python 编译器和运行时，运行在微控制器硬件上。它被设计为易于使用和理解，特别适合快速原型设计和开发。
@@ -57,3 +76,4 @@ MICROPYTHON 是 Python 3 编程语言的精简高效实现，包含 Python 标�
     [:octicons-arrow-right-24: <a href="https://docs.micropython.org/en/latest/" target="_blank"> Portal </a>](#)
 
 </div>
+
