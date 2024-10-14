@@ -4,7 +4,7 @@
 
 <div class="grid cards" markdown>
 
--   :simple-espressif:{ .lg .middle } __ESP32-S3-DevKitC-1 🎯🏆__
+-   :simple-espressif:{ .lg .middle } __ESP32-S3-DevKitC-1__
 
     ---
 
