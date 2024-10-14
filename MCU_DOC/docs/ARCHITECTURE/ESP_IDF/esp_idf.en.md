@@ -12,8 +12,6 @@
 
     ---
 
-    [Progress: C1 - C6]
-
     [:octicons-arrow-right-24: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/index.html" target="_blank"> Portal </a>](#)
 
 </div>
