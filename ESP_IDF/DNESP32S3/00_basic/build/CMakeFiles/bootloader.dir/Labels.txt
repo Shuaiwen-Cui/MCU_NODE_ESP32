@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/CMakeFiles/bootloader
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/CMakeFiles/bootloader.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/CMakeFiles/bootloader-complete.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3/00_basic/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
