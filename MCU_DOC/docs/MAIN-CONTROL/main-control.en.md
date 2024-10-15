@@ -1,5 +1,17 @@
 # MAIN CONTROL
 
+!!! info
+    - ESP32-S3-DevKitC-1 is the official development board of ESP32-S3.
+    - DNESP32S3M and DNESP32S3 are the development boards of Alientek. DNESP32S3M is the minimal system development board, and DNESP32S3 is the development board with rich peripherals.
+
+!!! note
+    **DNESP32S3M** is used as the major development board in this project.
+
+![DNESP32S3M](DNESP32S3M/DNESP32S3M.png){ width=600px }
+
+![DNESP32S3M-BACK](DNESP32S3M/DNESP32S3M-BACK.png){ width=600px }
+
+
 ## OFFICIAL DEV-BOARD
 
 <div class="grid cards" markdown>
@@ -15,6 +27,15 @@
 ## ALIENTEK
 
 <div class="grid cards" markdown>
+
+-   :material-book:{ .lg .middle } __ATK DNESP32S3M DEV BOARD 🎯__
+
+    ---
+
+    ATK DNESP32S3M dvelopment board resources.
+
+
+    [:octicons-arrow-right-24: <a href="http://www.openedv.com/docs/boards/xiaoxitongban/ESP32/ESP32S3M.html" target="_blank"> Portal </a>](#)
 
 -   :material-book:{ .lg .middle } __ATK DNESP32S3 DEV BOARD__
 

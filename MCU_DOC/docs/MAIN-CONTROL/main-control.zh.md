@@ -1,5 +1,16 @@
 # 主控
 
+!!! info
+    - ESP32-S3-DevKitC-1 是 ESP32-S3 的官方开发板。
+    - DNESP32S3M 和 DNESP32S3 是正点原子的开发板。DNESP32S3M 是最小系统开发板，DNESP32S3 是带有丰富外设的开发板。
+
+!!! note
+    **DNESP32S3M** 是本项目的主要开发板。
+
+![DNESP32S3M](DNESP32S3M/DNESP32S3M.png){ width=600px }
+
+![DNESP32S3M-BACK](DNESP32S3M/DNESP32S3M-BACK.png){ width=600px }
+
 ## 官方开发板
 
 <div class="grid cards" markdown>
@@ -15,6 +26,14 @@
 ## 正点原子
 
 <div class="grid cards" markdown>
+
+-   :material-book:{ .lg .middle } __ATK DNESP32S3M 开发板 🎯__
+
+    ---
+
+    ATK DNESP32S3M 开发板资源。
+
+    [:octicons-arrow-right-24: <a href="http://www.openedv.com/docs/boards/xiaoxitongban/ESP32/ESP32S3M.html" target="_blank"> 传送门 </a>](#)
 
 -   :material-book:{ .lg .middle } __ATK DNESP32S3 开发板__
 
