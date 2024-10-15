@@ -28,3 +28,14 @@
 </div>
 
 <iframe src="http://www.cuishuaiwen.com:7500/DEV/ESP32/ATK-DNESP32S3M/DNESP32S3M-HW-MANUAL.pdf" width="100%" height="600px"></iframe>
+
+## 开发框架
+
+### ESP-IDF
+<iframe src="http://www.cuishuaiwen.com:7500/DEV/ESP32/ATK-DNESP32S3M/DNESP32S3M-ESP-IDF-DEV.pdf" width="100%" height="600px"></iframe>
+
+### Arduino
+<iframe src="http://www.cuishuaiwen.com:7500/DEV/ESP32/ATK-DNESP32S3M/DNESP32S3M-ARDUINO-DEV.pdf" width="100%" height="600px"></iframe>
+
+### MicroPython
+<iframe src="http://www.cuishuaiwen.com:7500/DEV/ESP32/ATK-DNESP32S3M/DNESP32S3M-MPY-DEV.pdf" width="100%" height="600px"></iframe>
