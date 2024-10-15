@@ -1,5 +1,11 @@
 # ATK-DNESP32S3M DEV BOARD 🎯
 
+![DNESP32S3M](DNESP32S3M.png){ width=500px }
+
+![DNESP32S3M-BACK](DNESP32S3M-BACK.png){ width=500px }
+
+## DEV BOARD INFO
+
 <div class="grid cards" markdown>
 
 -   :material-book:{ .lg .middle } __ATK DNESP32S3M DEV BOARD 🎯__
@@ -21,3 +27,5 @@
 
 
 </div>
+
+<iframe src="http://www.cuishuaiwen.com:7500/DEV/ESP32/ATK-DNESP32S3M/DNESP32S3M-HW-MANUAL.pdf" width="100%" height="600px"></iframe>

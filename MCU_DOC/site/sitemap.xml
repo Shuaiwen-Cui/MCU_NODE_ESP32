@@ -50,6 +50,27 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/main-control/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/MAIN-CONTROL/DNESP32S3/DNESP32S3/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/PERCEPTION/perception/</loc>
         <lastmod>2024-10-15</lastmod>
         <changefreq>daily</changefreq>
@@ -111,6 +132,27 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/main-control/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/main-control/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3/DNESP32S3/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/</loc>
+        <lastmod>2024-10-15</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/PERCEPTION/perception/</loc>
