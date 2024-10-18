@@ -249,12 +249,14 @@ markdown_extensions:
 nav:
   - ABOUT: 
       - "index.md"
+  - ESP32: 
+      - "ESP32/ESP32.md"
+      - ESP_IDF: 
+          - "ESP32/ESP_IDF/esp_idf.md"
+      - MICROPYTHON: 
+          - "ESP32/MICROPYTHON/micropython.md"
   - ARCHITECTURE:
       - "ARCHITECTURE/architecture.md"
-      - ESP_IDF: 
-          - "ARCHITECTURE/ESP_IDF/esp_idf.md"
-      - MICROPYTHON: 
-          - "ARCHITECTURE/MICROPYTHON/micropython.md"
   - MAIN-CONTROL:
       - "MAIN-CONTROL/main-control.md"
       - ESP32-S3-DEVKITC-1: "MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1.md"
