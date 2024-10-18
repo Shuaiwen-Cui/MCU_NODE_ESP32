@@ -56,17 +56,17 @@
 
     [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1tY4y1L7HV/?spm_id_from=333.999.0.0&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
 
--   :fontawesome-brands-bilibili:{ .lg .middle } __【乐鑫教程】| 基于乐鑫 ESP32-S3 的 AIoT 编程实战 🎯🏆✅__
-
-    ---
-
-    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1Jr4y1E79s/?spm_id_from=333.999.0.0&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
-
 -   :fontawesome-brands-bilibili:{ .lg .middle } __【乐鑫教程】| 乐鑫 AIoT 开发资源与应用讲解 🎯🏆✅__
 
     ---
 
     [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1uY411N7ns/?spm_id_from=333.999.0.0&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
+
+-   :fontawesome-brands-bilibili:{ .lg .middle } __【乐鑫教程】| 基于乐鑫 ESP32-S3 的 AIoT 编程实战 🎯🏆✅__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1Jr4y1E79s/?spm_id_from=333.999.0.0&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
 
 </div>
 
