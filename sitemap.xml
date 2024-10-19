@@ -2,182 +2,182 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://localhost:8000/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
     </url>
     <url>
         <loc>https://localhost:8000/ARCHITECTURE/architecture/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/architecture/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/architecture/"/>
     </url>
     <url>
         <loc>https://localhost:8000/COMMUNICATION/communication/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/COMMUNICATION/communication/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/COMMUNICATION/communication/"/>
     </url>
     <url>
         <loc>https://localhost:8000/ESP32/ESP32/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/ESP32/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/ESP32/"/>
     </url>
     <url>
         <loc>https://localhost:8000/ESP32/ESP_IDF/esp_idf/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/ESP_IDF/esp_idf/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/ESP_IDF/esp_idf/"/>
     </url>
     <url>
         <loc>https://localhost:8000/ESP32/MICROPYTHON/micropython/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/MICROPYTHON/micropython/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/MICROPYTHON/micropython/"/>
     </url>
     <url>
         <loc>https://localhost:8000/INTERFACING/interfacing/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/interfacing/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/interfacing/"/>
     </url>
     <url>
         <loc>https://localhost:8000/MAIN-CONTROL/main-control/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/main-control/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/main-control/"/>
     </url>
     <url>
         <loc>https://localhost:8000/MAIN-CONTROL/DNESP32S3/DNESP32S3/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
     </url>
     <url>
         <loc>https://localhost:8000/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
     </url>
     <url>
         <loc>https://localhost:8000/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
     </url>
     <url>
         <loc>https://localhost:8000/PERCEPTION/perception/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/perception/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/perception/"/>
     </url>
     <url>
         <loc>https://localhost:8000/blog/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/ARCHITECTURE/architecture/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/architecture/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/architecture/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/COMMUNICATION/communication/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/COMMUNICATION/communication/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/COMMUNICATION/communication/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/ESP32/ESP32/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/ESP32/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/ESP32/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/ESP32/ESP_IDF/esp_idf/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/ESP_IDF/esp_idf/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/ESP_IDF/esp_idf/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/ESP32/MICROPYTHON/micropython/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/MICROPYTHON/micropython/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/MICROPYTHON/micropython/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/INTERFACING/interfacing/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/interfacing/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/interfacing/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/MAIN-CONTROL/main-control/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/main-control/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/main-control/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3/DNESP32S3/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3/DNESP32S3/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/DNESP32S3M/DNESP32S3M/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/PERCEPTION/perception/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/perception/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/perception/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/blog/</loc>
-        <lastmod>2024-10-18</lastmod>
+        <lastmod>2024-10-19</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
