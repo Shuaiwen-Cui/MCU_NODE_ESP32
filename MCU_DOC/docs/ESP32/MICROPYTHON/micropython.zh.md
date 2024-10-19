@@ -18,7 +18,7 @@
 
     VSCODE + MICROPYTHON
 
-    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1im411S7LT/?spm_id_from=333.788&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> Portal </a>](#)
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1im411S7LT/?spm_id_from=333.788&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
 
 </div>
 
@@ -56,7 +56,7 @@ MICROPYTHON 是 Python 3 编程语言的精简高效实现，包含 Python 标�
 
     Official website of MICROPYTHON.
 
-    [:octicons-arrow-right-24: <a href="https://micropython.org/" target="_blank"> Portal </a>](#)
+    [:octicons-arrow-right-24: <a href="https://micropython.org/" target="_blank"> 传送门 </a>](#)
 
 
 -  :material-github:{ .lg .middle } __MICROPYTHON GITHUB__
@@ -65,7 +65,7 @@ MICROPYTHON 是 Python 3 编程语言的精简高效实现，包含 Python 标�
 
     Official GitHub repository of MICROPYTHON.
 
-    [:octicons-arrow-right-24: <a href="https://github.com/micropython/micropython.git" target="_blank"> Portal </a>](#)
+    [:octicons-arrow-right-24: <a href="https://github.com/micropython/micropython.git" target="_blank"> 传送门 </a>](#)
 
 -  :material-file-code:{ .lg .middle } __MICROPYTHON 文档__
 
@@ -73,7 +73,20 @@ MICROPYTHON 是 Python 3 编程语言的精简高效实现，包含 Python 标�
 
     Official documentation of MICROPYTHON.
 
-    [:octicons-arrow-right-24: <a href="https://docs.micropython.org/en/latest/" target="_blank"> Portal </a>](#)
+    [:octicons-arrow-right-24: <a href="https://docs.micropython.org/en/latest/" target="_blank"> 传送门 </a>](#)
 
 </div>
 
+## 三方资源
+
+<div class="grid cards" markdown>
+
+
+-  :fontawesome-brands-bilibili:{ .lg .middle } __普中科技ESP32开发 🎯🏆__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1n24y1Z7UU?spm_id_from=333.788.videopod.episodes&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
+
+
+</div>

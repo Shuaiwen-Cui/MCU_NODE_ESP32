@@ -77,3 +77,16 @@ MICROPYTHON is a lean and efficient implementation of the Python 3 programming l
 
 </div>
 
+## THIRD PARTY RESOURCES
+
+<div class="grid cards" markdown>
+
+
+-  :fontawesome-brands-bilibili:{ .lg .middle } __PRECHIN ESP32 DEV 🎯🏆__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1n24y1Z7UU?spm_id_from=333.788.videopod.episodes&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> Portal </a>](#)
+
+
+</div>

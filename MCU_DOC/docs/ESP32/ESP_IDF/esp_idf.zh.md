@@ -76,11 +76,32 @@
 
 <div class="grid cards" markdown>
 
+-   :fontawesome-brands-bilibili:{ .lg .middle } __孤独的二进制 ESP-IDF 教程 🎯🏆__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1hM411k7zz/?spm_id_from=333.999.0.0" target="_blank"> 传送门 </a>](#)
+
 -   :fontawesome-brands-bilibili:{ .lg .middle } __【2024最新版 ESP32教程（基于ESP-IDF）】ESP32入门级开发课程 更新中 中文字幕 🎯🏆__
 
     ---
 
     [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1eRg7exEcT/?spm_id_from=333.788.recommend_more_video.0&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
+
+</div>
+
+## FREERTOS
+
+由于ESP-IDF是基于FreeRTOS的，因此学习FreeRTOS对于理解ESP-IDF非常重要。
+
+<div class="grid cards" markdown>
+
+
+-   :fontawesome-brands-bilibili:{ .lg .middle } __孤独的二进制 FREERTOS 教程 🎯🏆__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1q54y1Z7ca/?spm_id_from=333.999.0.0&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> 传送门 </a>](#)
 
 
 </div>

@@ -21,7 +21,7 @@
 
     ---
 
-    ATK DNESP32S3 dvelopment board tutorial. [C1-C6]
+    ATK DNESP32S3 dvelopment board tutorial. 
 
     [:octicons-arrow-right-24: <a href="https://www.bilibili.com/video/BV1sH4y1W7Tc/?spm_id_from=333.337.search-card.all.click&vd_source=5a427660f0337fedc22d4803661d493f" target="_blank"> Portal </a>](#)
 
