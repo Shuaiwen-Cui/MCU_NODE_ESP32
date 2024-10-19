@@ -8,7 +8,7 @@
 
 <div class="grid cards" markdown>
 
--   :material-book:{ .lg .middle } __ATK DNESP32S3M DEV BOARD 🎯__
+-   :material-book:{ .lg .middle } __ATK DNESP32S3M DEV BOARD 🎯🏆✅__
 
     ---
 
@@ -17,7 +17,7 @@
 
     [:octicons-arrow-right-24: <a href="http://www.openedv.com/docs/boards/xiaoxitongban/ESP32/ESP32S3M.html" target="_blank"> Portal </a>](#)
 
--  :fontawesome-brands-bilibili:{ .lg .middle } __TUTORIAL__
+-  :fontawesome-brands-bilibili:{ .lg .middle } __TUTORIAL 🎯🏆✅__
 
     ---
 
@@ -32,7 +32,7 @@
 
 ## DEV FRAMEWORK
 
-### ESP-IDF
+### ESP-IDF 🎯🏆✅
 <iframe src="http://www.cuishuaiwen.com:7500/DEV/ESP32/ATK-DNESP32S3M/DNESP32S3M-ESP-IDF-DEV.pdf" width="100%" height="600px"></iframe>
 
 ### Arduino
