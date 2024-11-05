@@ -115,6 +115,10 @@ plugins:
           build: true
           nav_translations: # note that all titles and subtitles in the navigation bar that need to be translated can be put here, but with no indentation
             ABOUT: 关于
+            ESP32: ESP32
+            INSTRUCTIONS: 项目说明
+            SETUP: 设置
+            PROJECT INITIALIZATION: 项目初始化
             ARCHITECTURE: 架构
             ESP_IDF: 乐鑫物联网开发框架(ESP-IDF)
             MICROPYTHON: MICROPYTHON
@@ -255,6 +259,10 @@ nav:
           - "ESP32/ESP_IDF/esp_idf.md"
       - MICROPYTHON: 
           - "ESP32/MICROPYTHON/micropython.md"
+  - INSTRUCTIONS: 
+      - "INSTRUCTIONS/instructions.md"
+      - SETUP: 
+          - PROJECT INITIALIZATION: "INSTRUCTIONS/SETUP/project-initialization.md"
   - ARCHITECTURE:
       - "ARCHITECTURE/architecture.md"
   - MAIN-CONTROL:

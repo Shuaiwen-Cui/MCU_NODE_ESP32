@@ -3,6 +3,9 @@
 !!! info
     **ESP-IDF (Espressif IoT Development Framework)** is the official development framework for the ESP32 series chips from Espressif. It provides a comprehensive set of tools and libraries to help developers create robust applications for ESP32-based devices. ESP-IDF supports FreeRTOS, Wi-Fi, Bluetooth, and a wide range of peripherals. It is compatible with the GCC toolchain and supports multiple languages like C and C++. The framework includes components for networking, security, power management, and driver development, making it suitable for a wide range of IoT applications.
 
+!!! note
+    There are two ways to use ESP-IDF: **ESP-IDF Command Prompt** and **GUI-based IDEs** like Visual Studio Code. The latter is the most popular way to use ESP-IDF.
+
 ## SETUP
 
 !!! note

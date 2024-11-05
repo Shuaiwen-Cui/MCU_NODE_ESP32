@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "00_basic",
-    "project_version":    "cbfda9e-dirty",
+    "project_version":    "47a09f1-dirty",
     "project_path":       "E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3M/00_basic",
     "idf_path":           "D:/ESP-IDF/v5.3.1/esp-idf",
     "build_dir":          "E:/DEV/MCU_NODE_ESP32/ESP_IDF/DNESP32S3M/00_basic/build",
