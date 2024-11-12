@@ -79,6 +79,18 @@
 
 <div class="grid cards" markdown>
 
+-   :material-file:{ .lg .middle } __DURUOFU 🎯🏆__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://www.duruofu.top/2024/01/30/4.%E7%A1%AC%E4%BB%B6%E7%9B%B8%E5%85%B3/MCU/ESP32/00.%E7%9B%AE%E5%BD%95/ESP32%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" target="_blank"> 传送门 </a>](#)
+
+-   :fontawesome-brands-youtube:{ .lg .middle} __LEARNEPS32 🎯🏆__
+
+    ---
+
+    [:octicons-arrow-right-24: <a href="https://learnesp32.com/videos/course-introduction/course-introduction" target="_blank"> 传送门 </a>](#)
+
 -   :fontawesome-brands-bilibili:{ .lg .middle } __孤独的二进制 ESP-IDF 教程 🎯🏆__
 
     ---

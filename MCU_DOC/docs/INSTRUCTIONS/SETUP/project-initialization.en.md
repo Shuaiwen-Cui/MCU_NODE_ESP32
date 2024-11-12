@@ -33,7 +33,7 @@ sample_proj/ # Project root directory
 !!! note
     This step is to configure the project settings to maximize the power of the hardware, i.e., use target-specific configurations rather than default configurations.
 !!! warning
-    Before you open the project configuration UI, make sure you have the project open in VSCode, set the target to your board, and have the ESP-IDF extension installed.
+    Before you open the project configuration UI, make sure you have the project open in VSCode, **set the target to your board**, and have the ESP-IDF extension installed.
 
 1. Enter the project configuration UI by pressing `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS) and type `ESP-IDF: Configure Project`. Alternatively, one can click the gear icon on the bottom menu of the VSCode window.
 ![CONFIGURE PROJECT](01-06-proj_config.png){ width=800px }
@@ -57,7 +57,7 @@ details to be provided later
 By far, we have finished the project initialization. The configuration is now consistent with the hardware onboard resources. 
 
 ## TEMPLATE PROGRAM
-Now, let's create a simple program to test the board. The program will blink the onboard LED.
+Now, let's create a simple program to test the board. 
 
 Go to the main.c file and replace the content with the following code:
 

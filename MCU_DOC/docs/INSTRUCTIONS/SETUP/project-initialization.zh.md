@@ -34,7 +34,7 @@ sample_proj/ # 项目根目录
     这一步是为了配置项目设置以最大化硬件的性能，即使用特定于目标的配置而不是默认配置。
 
 !!! warning
-    在打开项目配置 UI 之前，请确保您已在 VSCode 中打开了项目，将目标设置为对应的板子，并安装了 ESP-IDF 扩展。
+    在打开项目配置 UI 之前，请确保您已在 VSCode 中打开了项目，**将目标设置为对应的板子**，并安装了 ESP-IDF 扩展。
 
 1. 通过按 `Ctrl+Shift+P`（Windows/Linux）或 `Cmd+Shift+P`（macOS）并输入 `ESP-IDF: Configure Project` 进入项目配置 UI。或者，可以点击 VSCode 窗口底部菜单的齿轮图标。
 ![配置项目](01-06-proj_config.png){ width=800px }
@@ -59,7 +59,7 @@ sample_proj/ # 项目根目录
 
 ## 模板程序
 
-现在，让我们创建一个简单的程序来测试板子。该程序将会让板子上的 LED 闪烁。
+现在，让我们创建一个简单的程序来测试板子。
 
 转到 main.c 文件并用以下代码替换内容：
 
