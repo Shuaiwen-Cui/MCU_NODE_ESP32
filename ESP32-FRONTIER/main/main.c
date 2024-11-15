@@ -5,6 +5,7 @@
 #include "esp_chip_info.h"
 #include "esp_psram.h"
 #include "esp_flash.h"
+#include "led.h"
 
 /**
  * @brief Entry point of the program
@@ -38,9 +39,13 @@ void app_main(void)
     // Display PSRAM size
     printf("PSRAM size: %d bytes\n", esp_psram_get_size());
 
+    // BSP
+    led_init(); 
+
     while (1)
     {
         printf("Hello-ESP32\r\n");
+        LED_TOGGLE();
         vTaskDelay(1000);
     }
 }

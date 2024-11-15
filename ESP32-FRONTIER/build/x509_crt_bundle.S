@@ -1,4 +1,4 @@
-/* * Data converted from E:/DEV/MCU_NODE_ESP32/NODE_DEV/FRONTIER/ESP32/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)
