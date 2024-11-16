@@ -1,11 +1,18 @@
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "nvs_flash.h"
+/* Dependencies */
+// Basic
 #include "esp_system.h"
 #include "esp_chip_info.h"
 #include "esp_psram.h"
 #include "esp_flash.h"
+#include "nvs_flash.h"
+
+// RTOS
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+// BSP
 #include "led.h"
+#include "rgb.h"
 
 /**
  * @brief Entry point of the program
@@ -41,11 +48,25 @@ void app_main(void)
 
     // BSP
     led_init(); 
+    rgb_init();
 
     while (1)
     {
         printf("Hello-ESP32\r\n");
-        LED_TOGGLE();
-        vTaskDelay(1000);
+        led_toggle();
+        rgb(1, 0, 0);
+        vTaskDelay(200);
+        rgb(0, 1, 0);
+        vTaskDelay(200);
+        rgb(0, 0, 1);
+        vTaskDelay(200);
+        rgb(1, 1, 0);
+        vTaskDelay(200);
+        rgb(1, 0, 1);
+        vTaskDelay(200);
+        rgb(0, 1, 1);
+        vTaskDelay(200);
+        rgb(1, 1, 1);
+        vTaskDelay(200);
     }
 }

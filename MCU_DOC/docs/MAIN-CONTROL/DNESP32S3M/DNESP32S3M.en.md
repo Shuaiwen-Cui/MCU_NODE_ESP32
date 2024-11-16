@@ -4,6 +4,10 @@
 
 ![DNESP32S3M-BACK](DNESP32S3M-BACK.png){ width=500px }
 
+![ESP32-S3](FUNCTIONAL_BLOCK_EN.png){width=800px}
+
+![ESP32-S3-MODULES](MODULES_EN.png){width=800px}
+
 ## DEV BOARD INFO
 
 <div class="grid cards" markdown>

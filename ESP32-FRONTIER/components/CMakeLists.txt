@@ -1,6 +1,7 @@
 set(src_dirs
             LCD
             LED
+            RGB
             KEY
             SPI
             SDIO
@@ -9,6 +10,7 @@ set(src_dirs
 set(include_dirs
             LCD
             LED
+            RGB
             KEY
             SPI
             SDIO

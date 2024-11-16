@@ -1,23 +1,15 @@
 /**
- ****************************************************************************************************
- * @file        led.c
- * @author      ALIENTEK
- * @version     V1.0
- * @date        2023-08-26
- * @brief       LED driver code
- * @license     Copyright (c) 2020-2032, Guangzhou Xingyi Electronics Co., Ltd.
- ****************************************************************************************************
- * @attention
- *
- * Development Board: ALIENTEK ESP32-S3 Minimum System Board
- * Online Videos: www.yuanzige.com
- * Technical Forum: www.openedv.com
- * Official Website: www.alientek.com
- * Purchase Link: openedv.taobao.com
- *
- ****************************************************************************************************
+ * @file led.c
+ * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @brief The led here indicates the onboard red led on the Alientek DNESP32S3M minimal development board.
+ * @version 1.0
+ * @date 2024-11-16
+ * 
+ * @copyright Copyright (c) 2024
+ * 
  */
 
+/* Dependencies */
 #include "led.h"
 
 /**
@@ -36,5 +28,32 @@ void led_init(void)
     gpio_init_struct.pin_bit_mask = 1ull << LED_GPIO_PIN;   /* Set pin bit mask for the configured pin */
     gpio_config(&gpio_init_struct);                         /* Configure GPIO */
 
-    LED(1);                                                 /* Turn off the LED */
+    led(1); /* Turn on the LED */
+}
+
+/**
+ * @brief       Control the LED
+ * @param       x: 1 for on, 0 for off
+ * @retval      None
+ */
+void led(int x)
+{
+    if(x)
+    {
+        gpio_set_level(LED_GPIO_PIN, LED_PIN_RESET);
+    }
+    else
+    {
+        gpio_set_level(LED_GPIO_PIN, LED_PIN_SET);
+    }
+}
+
+/**
+ * @brief       Toggle the LED
+ * @param       None
+ * @retval      None
+ */
+void led_toggle(void)
+{
+    gpio_set_level(LED_GPIO_PIN, !gpio_get_level(LED_GPIO_PIN));
 }
