@@ -63,3 +63,6 @@ project-name/
     - components folder: peripheral module BSP, low-level oriented.
     - tinyshm folder: TinySHM framework code, high-level oriented.
     - build folder: auto-generated build directory.
+
+!!! tip "Important Reminder"
+    Every time you add a new component, you need to add the component to the `CMakeLists.txt` file in the `components` directory. The same applies to the `tinyshm` directory. Otherwise, the component will not be compiled into the project.
