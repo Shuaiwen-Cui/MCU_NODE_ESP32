@@ -121,9 +121,12 @@ plugins:
             PROJECT FRAMEWORK: 项目框架
             ARCHITECTURE: 架构
             MAIN-CONTROL: 主控
+            HARDWARE: 硬件
             PERCEPTION: 感知
             COMMUNICATION: 通信
             INTERFACING: 交互
+            LED: LED灯
+            RGB: RGB灯
 
 # # Hooks
 # hooks:
@@ -271,6 +274,8 @@ nav:
       - "COMMUNICATION/communication.md"
   - INTERFACING:
       - "INTERFACING/interfacing.md"
+      - LED: "INTERFACING/LED/led.md"
+      - RGB: "INTERFACING/RGB/rgb.md"
 
 
     
