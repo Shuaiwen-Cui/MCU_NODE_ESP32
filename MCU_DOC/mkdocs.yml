@@ -117,11 +117,9 @@ plugins:
             ABOUT: 关于
             # ESP32: ESP32
             INSTRUCTIONS: 项目说明
-            # SETUP: 设置
             PROJECT INITIALIZATION: 项目初始化
+            PROJECT FRAMEWORK: 项目框架
             ARCHITECTURE: 架构
-            ESP_IDF: 乐鑫物联网开发框架(ESP-IDF)
-            MICROPYTHON: MICROPYTHON
             MAIN-CONTROL: 主控
             PERCEPTION: 感知
             COMMUNICATION: 通信
@@ -261,15 +259,12 @@ nav:
   #         - "ESP32/MICROPYTHON/micropython.md"
   - INSTRUCTIONS: 
       - "INSTRUCTIONS/instructions.md"
-      # - SETUP: 
-      #     - PROJECT INITIALIZATION: "INSTRUCTIONS/SETUP/project-initialization.md"
+      - PROJECT INITIALIZATION: "INSTRUCTIONS/PROJECT-INITIALIZATION/project-initialization.md"
+      - PROJECT FRAMEWORK: "INSTRUCTIONS/PROJECT-FRAMEWORK/project-framework.md"
   - ARCHITECTURE:
       - "ARCHITECTURE/architecture.md"
   - MAIN-CONTROL:
-      - "MAIN-CONTROL/main-control.md"
-      - ESP32-S3-DEVKITC-1: "MAIN-CONTROL/ESP32-S3-DEVKITC-1/ESP32-S3-DEVKITC-1.md"
-      - DNESP32S3M 🎯: "MAIN-CONTROL/DNESP32S3M/DNESP32S3M.md"
-      - DNESP32S3: "MAIN-CONTROL/DNESP32S3/DNESP32S3.md"
+      - HARDWARE: "MAIN-CONTROL/HARDWARE/hardware.md"
   - PERCEPTION:
       - "PERCEPTION/perception.md"
   - COMMUNICATION:

@@ -1,10 +1,10 @@
 idf_component_register(
     SRC_DIRS 
         "."
-        "APP"
+        "app"
                                  
     INCLUDE_DIRS 
         "."
-        "APP"
+        "app"
         )
 
