@@ -127,6 +127,8 @@ plugins:
             INTERFACING: 交互
             LED: LED灯
             RGB: RGB灯
+            KEY: 按键
+            KEY-INTERRUPT: 按键中断
 
 # # Hooks
 # hooks:
@@ -273,9 +275,12 @@ nav:
   - COMMUNICATION:
       - "COMMUNICATION/communication.md"
   - INTERFACING:
-      - "INTERFACING/interfacing.md"
+      # - "INTERFACING/interfacing.md"
       - LED: "INTERFACING/LED/led.md"
       - RGB: "INTERFACING/RGB/rgb.md"
+      - KEY: 
+        - KEY: "INTERFACING/KEY/key.md"
+        - KEY-INTERRUPT: "INTERFACING/KEY/key-itr.md"
 
 
     

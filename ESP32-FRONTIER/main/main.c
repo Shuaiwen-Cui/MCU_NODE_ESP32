@@ -1,3 +1,14 @@
+/**
+ * @file main.c
+ * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @brief 
+ * @version 1.0
+ * @date 2024-11-17
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 /* Dependencies */
 // Basic
 #include "esp_system.h"
@@ -14,7 +25,8 @@
 // BSP
 #include "led.h"
 #include "rgb.h"
-#include "dht11.h"
+#include "key.h"
+#include "exit.h"
 
 /**
  * @brief Entry point of the program
@@ -27,7 +39,7 @@ void app_main(void)
     uint32_t flash_size;
     esp_chip_info_t chip_info;
 
-    int temp, humidity;
+    // uint8_t key;
 
     // Initialize NVS
     ret = nvs_flash_init();
@@ -53,28 +65,42 @@ void app_main(void)
     // BSP
     led_init();
     rgb_init();
-    DHT11_Init();
+    // key_init();
+    exit_init();
 
     while (1)
     {
         // printf("Hello-ESP32\r\n");
-        led_toggle();
-        rgb(1, 0, 0);
-        vTaskDelay(200);
-        rgb(0, 1, 0);
-        vTaskDelay(200);
-        rgb(0, 0, 1);
-        vTaskDelay(200);
-        rgb(1, 1, 0);
-        vTaskDelay(200);
-        rgb(1, 0, 1);
-        vTaskDelay(200);
-        rgb(0, 1, 1);
-        vTaskDelay(200);
-        rgb(1, 1, 1);
-        vTaskDelay(200);
-        DHT11_StartGet(&temp, &humidity);
-        ESP_LOGI("dht11","Temperature: %d, Humidity: %d", temp/10, humidity);
+        // led_toggle();
+        // rgb(1, 0, 0);
+        // vTaskDelay(200);
+        // rgb(0, 1, 0);
+        // vTaskDelay(200);
+        // rgb(0, 0, 1);
+        // vTaskDelay(200);
+        // rgb(1, 1, 0);
+        // vTaskDelay(200);
+        // rgb(1, 0, 1);
+        // vTaskDelay(200);
+        // rgb(0, 1, 1);
+        // vTaskDelay(200);
+        // rgb(1, 1, 1);
+        // vTaskDelay(200);
+
+        // key = key_scan(0);
+
+        // switch(key)
+        // {
+        //     case BOOT_PRES:
+        //         led_toggle();
+        //         rgb_toggle();
+        //         break;
+        //     default:
+        //         break;
+        // }
+
+        vTaskDelay(10);
+
     }
 
 }

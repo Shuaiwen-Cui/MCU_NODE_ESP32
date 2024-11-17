@@ -1,65 +1,55 @@
 /**
- ****************************************************************************************************
- * @file        key.c
- * @author      正点原子团队(ALIENTEK)
- * @version     V1.0
- * @date        2023-08-26
- * @brief       按键驱动代码
- * @license     Copyright (c) 2020-2032, 广州市星翼电子科技有限公司
- ****************************************************************************************************
- * @attention
- *
- * 实验平台:正点原子 ESP32-S3 最小系统板
- * 在线视频:www.yuanzige.com
- * 技术论坛:www.openedv.com
- * 公司网址:www.alientek.com
- * 购买地址:openedv.taobao.com
+ * @file key.c
+ * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @brief This file is for the onboard key.
+ * @version 1.0
+ * @date 2024-11-17
  * 
- ****************************************************************************************************
+ * @copyright Copyright (c) 2024
+ * 
  */
 
 #include "key.h"
 
-
 /**
- * @brief       初始化按键
- * @param       无
- * @retval      无
+ * @brief       Initialize the key
+ * @param       None
+ * @retval      None
  */
 void key_init(void)
 {
     gpio_config_t gpio_init_struct;
 
-    gpio_init_struct.intr_type = GPIO_INTR_DISABLE;         /* 失能引脚中断 */
-    gpio_init_struct.mode = GPIO_MODE_INPUT;                /* 输入模式 */
-    gpio_init_struct.pull_up_en = GPIO_PULLUP_ENABLE;       /* 使能上拉 */
-    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_DISABLE;  /* 失能下拉 */
-    gpio_init_struct.pin_bit_mask = 1ull << BOOT_GPIO_PIN;  /* BOOT按键引脚 */
-    gpio_config(&gpio_init_struct);                         /* 配置使能 */
+    gpio_init_struct.intr_type = GPIO_INTR_DISABLE;         /* Disable pin interrupt */
+    gpio_init_struct.mode = GPIO_MODE_INPUT;                /* Input mode */
+    gpio_init_struct.pull_up_en = GPIO_PULLUP_ENABLE;       /* Enable pull-up */
+    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_DISABLE;  /* Disable pull-down */
+    gpio_init_struct.pin_bit_mask = 1ull << BOOT_GPIO_PIN;  /* BOOT key pin */
+    gpio_config(&gpio_init_struct);                         /* Configure and enable */
 }
 
 /**
- * @brief       按键扫描函数
- * @param       mode:0 / 1, 具体含义如下:
- *              0,  不支持连续按(当按键按下不放时, 只有第一次调用会返回键值,
- *                  必须松开以后, 再次按下才会返回其他键值)
- *              1,  支持连续按(当按键按下不放时, 每次调用该函数都会返回键值)
- * @retval      键值, 定义如下:
- *              BOOT_PRES, 1, BOOT按下
+ * @brief       Key scan function
+ * @param       mode: 0 / 1, with the following meanings:
+ *              0: Non-continuous press (returns key value only on the first press.
+ *                 Must release and press again to return a value).
+ *              1: Continuous press supported (returns key value each time the function is called while the key is pressed).
+ * @retval      Key value, defined as follows:
+ *              BOOT_PRES, 1, BOOT key pressed
  */
 uint8_t key_scan(uint8_t mode)
 {
     uint8_t keyval = 0;
-    static uint8_t key_boot = 1;    /* 按键松开标志 */
+    static uint8_t key_boot = 1;    /* Key release flag */
 
     if(mode)
     {
         key_boot = 1;
     }
 
-    if (key_boot && (BOOT == 0))    /* 按键松开标志为1，且有任意一个按键按下了 */
+    if (key_boot && (BOOT == 0))    /* Key release flag is 1 and any key is pressed */
     {
-        vTaskDelay(10);             /* 去抖动 */
+        vTaskDelay(10);             /* Debounce */
         key_boot = 0;
 
         if (BOOT == 0)
@@ -72,5 +62,5 @@ uint8_t key_scan(uint8_t mode)
         key_boot = 1;
     }
 
-    return keyval;                  /* 返回键值 */
+    return keyval;                  /* Return key value */
 }

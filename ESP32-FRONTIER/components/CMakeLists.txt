@@ -3,9 +3,9 @@ set(src_dirs
             LED
             RGB
             KEY
+            EXIT
             SPI
             SDIO
-            DHT11
             )
 
 set(include_dirs
@@ -13,9 +13,9 @@ set(include_dirs
             LED
             RGB
             KEY
+            EXIT
             SPI
             SDIO
-            DHT11
             )
 
 set(requires

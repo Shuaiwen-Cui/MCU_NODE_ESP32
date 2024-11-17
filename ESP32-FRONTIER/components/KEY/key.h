@@ -1,42 +1,47 @@
 /**
- ****************************************************************************************************
- * @file        key.h
- * @author      正点原子团队(ALIENTEK)
- * @version     V1.0
- * @date        2023-08-26
- * @brief       按键驱动代码
- * @license     Copyright (c) 2020-2032, 广州市星翼电子科技有限公司
- ****************************************************************************************************
- * @attention
- *
- * 实验平台:正点原子 ESP32-S3 最小系统板
- * 在线视频:www.yuanzige.com
- * 技术论坛:www.openedv.com
- * 公司网址:www.alientek.com
- * 购买地址:openedv.taobao.com
+ * @file key.h
+ * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @brief This file is for the onboard key.
+ * @version 1.0
+ * @date 2024-11-17
  * 
- ****************************************************************************************************
+ * @copyright Copyright (c) 2024
+ * 
  */
 
-#ifndef __KEY_H_
-#define __KEY_H_
+#ifndef __KEY_H__
+#define __KEY_H__
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/gpio.h"
 
-
-/* 引脚定义 */
+/* Pin Definition */
 #define BOOT_GPIO_PIN   GPIO_NUM_0
 
-/*IO操作*/
+/* IO Operation */
 #define BOOT            gpio_get_level(BOOT_GPIO_PIN)
 
-/* 按键按下定义 */
-#define BOOT_PRES       1       /* BOOT按键按下 */
+/* Key Press Definition */
+#define BOOT_PRES       1       /* BOOT key pressed */
 
-/* 函数声明 */
-void key_init(void);            /* 初始化按键 */
-uint8_t key_scan(uint8_t mode); /* 按键扫描函数 */
+/* Function declarations */
+/**
+ * @brief       Initialize the key
+ * @param       None
+ * @retval      None
+ */
+void key_init(void);            /* Initialize the key */
+
+/**
+ * @brief       Key scan function
+ * @param       mode: 0 / 1, with the following meanings:
+ *              0: Non-continuous press (returns key value only on the first press.
+ *                 Must release and press again to return a value).
+ *              1: Continuous press supported (returns key value each time the function is called while the key is pressed).
+ * @retval      Key value, defined as follows:
+ *              BOOT_PRES, 1, BOOT key pressed
+ */
+uint8_t key_scan(uint8_t mode); /* Key scan function */
 
 #endif
