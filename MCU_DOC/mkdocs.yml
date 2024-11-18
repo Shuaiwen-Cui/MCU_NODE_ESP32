@@ -123,7 +123,7 @@ plugins:
             MAIN-CONTROL: 主控
             HARDWARE: 硬件
             ESPTIMER: 定时器
-            SPI: SPI
+            SPI: 串行外设接口SPI
             PERCEPTION: 感知
             COMMUNICATION: 通信
             INTERFACING: 交互
