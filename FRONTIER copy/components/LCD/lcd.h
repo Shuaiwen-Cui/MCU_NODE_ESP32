@@ -1,23 +1,11 @@
 /**
- ****************************************************************************************************
- * @file        lcd.h
- * @author      正点原子团队(ALIENTEK)
- * @version     V1.0
- * @date        2023-08-26
- * @brief       SPI LCD(MCU屏) 驱动代码
- *              支持驱动IC型号包括:ILI9341等
- *
- * @license     Copyright (c) 2020-2032, 广州市星翼电子科技有限公司
- ****************************************************************************************************
- * @attention
- *
- * 实验平台:正点原子 ESP32-S3 最小系统板
- * 在线视频:www.yuanzige.com
- * 技术论坛:www.openedv.com
- * 公司网址:www.alientek.com
- * 购买地址:openedv.taobao.com
- *
- ****************************************************************************************************
+ * @file lcd.h
+ * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @brief LCD driver header file
+ * @version 1.0
+ * @date 2024-11-18
+ * @ref Alinetek LCD driver
+ * @copyright Copyright (c) 2024
  */
 
 #ifndef __LCD_H__
@@ -31,109 +19,111 @@
 #include "driver/gpio.h"
 #include "spi.h"
 
+/* Pin definitions */
+#define LCD_NUM_BL GPIO_NUM_41  /* Backlight control pin */
+#define LCD_NUM_WR GPIO_NUM_40  /* Write control pin */
+#define LCD_NUM_CS GPIO_NUM_39  /* Chip select pin */
+#define LCD_NUM_RST GPIO_NUM_38 /* Reset pin */
 
-/* 引脚定义 */
-#define LCD_NUM_BL      GPIO_NUM_41
-#define LCD_NUM_WR      GPIO_NUM_40
-#define LCD_NUM_CS      GPIO_NUM_39
-#define LCD_NUM_RST     GPIO_NUM_38
+/* IO operations */
+#define LCD_WR(x)                                                              \
+    do                                                                         \
+    {                                                                          \
+        x ? (gpio_set_level(LCD_NUM_WR, 1)) : (gpio_set_level(LCD_NUM_WR, 0)); \
+    } while (0)
 
-/* IO操作 */
-#define LCD_WR(x)       do{ x ? \
-                            (gpio_set_level(LCD_NUM_WR, 1)):    \
-                            (gpio_set_level(LCD_NUM_WR, 0));    \
-                        }while(0)
+#define LCD_CS(x)                                                              \
+    do                                                                         \
+    {                                                                          \
+        x ? (gpio_set_level(LCD_NUM_CS, 1)) : (gpio_set_level(LCD_NUM_CS, 0)); \
+    } while (0)
 
-#define LCD_CS(x)       do{ x ? \
-                            (gpio_set_level(LCD_NUM_CS, 1)):    \
-                            (gpio_set_level(LCD_NUM_CS, 0));    \
-                        }while(0)
+#define LCD_PWR(x)                                                             \
+    do                                                                         \
+    {                                                                          \
+        x ? (gpio_set_level(LCD_NUM_BL, 1)) : (gpio_set_level(LCD_NUM_BL, 0)); \
+    } while (0)
 
-#define LCD_PWR(x)       do{ x ? \
-                            (gpio_set_level(LCD_NUM_BL, 1)):    \
-                            (gpio_set_level(LCD_NUM_BL, 0));    \
-                        }while(0)
+#define LCD_RST(x)                                                               \
+    do                                                                           \
+    {                                                                            \
+        x ? (gpio_set_level(LCD_NUM_RST, 1)) : (gpio_set_level(LCD_NUM_RST, 0)); \
+    } while (0)
 
-#define LCD_RST(x)       do{ x ? \
-                            (gpio_set_level(LCD_NUM_RST, 1)):   \
-                            (gpio_set_level(LCD_NUM_RST, 0));   \
-                        }while(0)
+/* Common color values */
+#define WHITE 0xFFFF   /* White */
+#define BLACK 0x0000   /* Black */
+#define RED 0xF800     /* Red */
+#define GREEN 0x07E0   /* Green */
+#define BLUE 0x001F    /* Blue */
+#define MAGENTA 0XF81F /* Magenta/Purple = BLUE + RED */
+#define YELLOW 0XFFE0  /* Yellow = GREEN + RED */
+#define CYAN 0X07FF    /* Cyan = GREEN + BLUE */
 
-/* 常用颜色值 */
-#define WHITE           0xFFFF      /* 白色 */
-#define BLACK           0x0000      /* 黑色 */
-#define RED             0xF800      /* 红色 */
-#define GREEN           0x07E0      /* 绿色 */
-#define BLUE            0x001F      /* 蓝色 */ 
-#define MAGENTA         0XF81F      /* 品红色/紫红色 = BLUE + RED */
-#define YELLOW          0XFFE0      /* 黄色 = GREEN + RED */
-#define CYAN            0X07FF      /* 青色 = GREEN + BLUE */  
+/* Less common color values */
+#define BROWN 0XBC40      /* Brown */
+#define BRRED 0XFC07      /* Brown-red */
+#define GRAY 0X8430       /* Gray */
+#define DARKBLUE 0X01CF   /* Dark blue */
+#define LIGHTBLUE 0X7D7C  /* Light blue */
+#define GRAYBLUE 0X5458   /* Gray-blue */
+#define LIGHTGREEN 0X841F /* Light green */
+#define LGRAY 0XC618      /* Light gray (panel background) */
+#define LGRAYBLUE 0XA651  /* Light gray-blue (middle layer color) */
+#define LBBLUE 0X2B12     /* Light brown-blue (selection bar highlight color) */
 
-/* 非常用颜色 */
-#define BROWN           0XBC40      /* 棕色 */
-#define BRRED           0XFC07      /* 棕红色 */
-#define GRAY            0X8430      /* 灰色 */ 
-#define DARKBLUE        0X01CF      /* 深蓝色 */
-#define LIGHTBLUE       0X7D7C      /* 浅蓝色 */ 
-#define GRAYBLUE        0X5458      /* 灰蓝色 */ 
-#define LIGHTGREEN      0X841F      /* 浅绿色 */  
-#define LGRAY           0XC618      /* 浅灰色(PANNEL),窗体背景色 */ 
-#define LGRAYBLUE       0XA651      /* 浅灰蓝色(中间层颜色) */ 
-#define LBBLUE          0X2B12      /* 浅棕蓝色(选择条目的反色) */ 
+/* Scan direction definitions */
+#define L2R_U2D 0 /* Left to right, top to bottom */
+#define L2R_D2U 1 /* Left to right, bottom to top */
+#define R2L_U2D 2 /* Right to left, top to bottom */
+#define R2L_D2U 3 /* Right to left, bottom to top */
+#define U2D_L2R 4 /* Top to bottom, left to right */
+#define U2D_R2L 5 /* Top to bottom, right to left */
+#define D2U_L2R 6 /* Bottom to top, left to right */
+#define D2U_R2L 7 /* Bottom to top, right to left */
 
-/* 扫描方向定义 */
-#define L2R_U2D         0           /* 从左到右,从上到下 */
-#define L2R_D2U         1           /* 从左到右,从下到上 */
-#define R2L_U2D         2           /* 从右到左,从上到下 */
-#define R2L_D2U         3           /* 从右到左,从下到上 */
-#define U2D_L2R         4           /* 从上到下,从左到右 */
-#define U2D_R2L         5           /* 从上到下,从右到左 */
-#define D2U_L2R         6           /* 从下到上,从左到右 */
-#define D2U_R2L         7           /* 从下到上,从右到左 */
+#define DFT_SCAN_DIR L2R_U2D /* Default scan direction */
 
-#define DFT_SCAN_DIR    L2R_U2D     /* 默认的扫描方向 */
-
-
-
-/* LCD信息结构体 */
+/* LCD information structure */
 typedef struct _lcd_obj_t
 {
-    uint16_t        width;          /* 宽度 */
-    uint16_t        height;         /* 高度 */
-    uint8_t         dir;            /* 横屏还是竖屏控制：0，竖屏；1，横屏。 */
-    uint16_t        wramcmd;        /* 开始写gram指令 */
-    uint16_t        setxcmd;        /* 设置x坐标指令 */
-    uint16_t        setycmd;        /* 设置y坐标指令 */
-    uint16_t        wr;             /* 命令/数据IO */
-    uint16_t        cs;             /* 片选IO */
-	uint16_t        bl;             /* 背光 */
-	uint16_t        rst;            /* 复位 */
+    uint16_t width;   /* Width */
+    uint16_t height;  /* Height */
+    uint8_t dir;      /* Screen orientation: 0 = vertical, 1 = horizontal */
+    uint16_t wramcmd; /* Write GRAM command */
+    uint16_t setxcmd; /* Set X coordinate command */
+    uint16_t setycmd; /* Set Y coordinate command */
+    uint16_t wr;      /* Command/Data IO */
+    uint16_t cs;      /* Chip select IO */
+    uint16_t bl;      /* Backlight */
+    uint16_t rst;     /* Reset */
 } lcd_obj_t;
 
-/* LCD缓存大小设置，修改此值时请注意！！！！修改这两个值时可能会影响以下函数 lcd_clear/lcd_fill/lcd_draw_line */
-#define LCD_TOTAL_BUF_SIZE      (160 * 80 * 2)
-#define LCD_BUF_SIZE            2560
+/* LCD buffer size settings - modify with caution!
+   Changing these values may affect lcd_clear/lcd_fill/lcd_draw_line functions */
+#define LCD_TOTAL_BUF_SIZE (160 * 80 * 2) /* Total buffer size */
+#define LCD_BUF_SIZE 2560                 /* Partial buffer size */
 
-/* 导出相关变量 */
+/* Exported variables */
 extern lcd_obj_t lcd_self;
 extern uint8_t lcd_buf[LCD_TOTAL_BUF_SIZE];
 
-/* 函数声明 */
-void lcd_init(void);                                                                                                    /* 初始化LCD */
-void lcd_clear(uint16_t color);                                                                                         /* 清屏函数 */
-void lcd_scan_dir(uint8_t dir);                                                                                         /* 设置LCD的自动扫描方向 */
-void lcd_write_data(const uint8_t *data, int len);                                                                      /* 发送数据到LCD */
-void lcd_write_data16(uint16_t data);                                                                                   /* 发送16位数据到LCD */
-void lcd_set_cursor(uint16_t xpos, uint16_t ypos);                                                                      /* 设置光标的位置 */
-void lcd_set_window(uint16_t xstar, uint16_t ystar,uint16_t xend,uint16_t yend);                                        /* 设置窗口大小 */
-void lcd_fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color);                                      /* 在指定区域内填充单个颜色 */
-void lcd_show_num(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint8_t size, uint16_t color);                     /* 显示len个数字 */
-void lcd_show_xnum(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint8_t size, uint8_t mode, uint16_t color);      /* 扩展显示len个数字 */
-void lcd_show_string(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t size, char *p, uint16_t color);   /* 显示字符串 */
-void lcd_draw_rectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t color);                             /* 画一个矩形 */
-void lcd_draw_hline(uint16_t x, uint16_t y, uint16_t len, uint16_t color);                                              /* 画水平线 */
-void lcd_draw_line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t color);                                  /* 画线函数(直线、斜线) */
-void lcd_draw_pixel(uint16_t x, uint16_t y, uint16_t color);                                                            /* 绘画一个像素点 */
-void lcd_show_char(uint16_t x, uint16_t y, uint8_t chr, uint8_t size, uint8_t mode, uint16_t color);                    /* 在指定位置显示一个字符 */
+/* Function declarations */
+void lcd_init(void);                                                                                                  /* Initialize the LCD */
+void lcd_clear(uint16_t color);                                                                                       /* Clear the screen */
+void lcd_scan_dir(uint8_t dir);                                                                                       /* Set the LCD auto scan direction */
+void lcd_write_data(const uint8_t *data, int len);                                                                    /* Write data to the LCD */
+void lcd_write_data16(uint16_t data);                                                                                 /* Write 16-bit data to the LCD */
+void lcd_set_cursor(uint16_t xpos, uint16_t ypos);                                                                    /* Set the cursor position */
+void lcd_set_window(uint16_t xstar, uint16_t ystar, uint16_t xend, uint16_t yend);                                    /* Set the display window size */
+void lcd_fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color);                                    /* Fill a specific area with a single color */
+void lcd_show_num(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint8_t size, uint16_t color);                   /* Display a number with len digits */
+void lcd_show_xnum(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint8_t size, uint8_t mode, uint16_t color);    /* Display an extended number with len digits */
+void lcd_show_string(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t size, char *p, uint16_t color); /* Display a string */
+void lcd_draw_rectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);                          /* Draw a rectangle */
+void lcd_draw_hline(uint16_t x, uint16_t y, uint16_t len, uint16_t color);                                            /* Draw a horizontal line */
+void lcd_draw_line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);                               /* Draw a straight or slanted line */
+void lcd_draw_pixel(uint16_t x, uint16_t y, uint16_t color);                                                          /* Draw a pixel */
+void lcd_show_char(uint16_t x, uint16_t y, uint8_t chr, uint8_t size, uint8_t mode, uint16_t color);                  /* Display a character at a specified position */
 
-#endif
+#endif /* __LCD_H__ */

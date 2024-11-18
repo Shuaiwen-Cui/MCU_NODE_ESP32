@@ -28,6 +28,7 @@
 #include "key.h"
 #include "exit.h"
 #include "lcd.h"
+#include "spi.h"
 
 
 /**
@@ -41,7 +42,7 @@ void app_main(void)
     esp_err_t ret;
     
     
-    ret = nvs_flash_init();             /* 初始化NVS */
+    ret = nvs_flash_init();
 
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
     {
@@ -49,9 +50,9 @@ void app_main(void)
         ret = nvs_flash_init();
     }
 
-    led_init();                         /* 初始化LED */
-    spi2_init();                        /* 初始化SPI2 */
-    lcd_init();                         /* 初始化LCD */
+    led_init();
+    spi2_init();
+    lcd_init();
     vTaskDelay(500);
     
     while (1)

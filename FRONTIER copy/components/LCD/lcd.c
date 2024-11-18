@@ -1,24 +1,13 @@
 /**
- ****************************************************************************************************
-* @file        lcd.c
-* @author      正点原子团队(ALIENTEK)
-* @version     V1.0
-* @date        2023-08-26
-* @brief       SPI LCD(MCU屏) 驱动代码
-*              支持驱动IC型号包括:ILI9341等
-*
-* @license     Copyright (c) 2020-2032, 广州市星翼电子科技有限公司
-****************************************************************************************************
-* @attention
-*
- * 实验平台:正点原子 ESP32-S3 最小系统板
-* 在线视频:www.yuanzige.com
-* 技术论坛:www.openedv.com
-* 公司网址:www.alientek.com
-* 购买地址:openedv.taobao.com
-*
-****************************************************************************************************
-*/
+ * @file lcd.c
+ * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @brief  LCD driver source file
+ * @version 1.0
+ * @date 2024-11-18
+ * @ref Alientek LCD Driver
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
 #include "lcd.h"
 #include "lcdfont.h"
@@ -29,130 +18,143 @@ uint8_t lcd_buf[LCD_TOTAL_BUF_SIZE];
 lcd_obj_t lcd_self;
 
 
-/* LCD需要初始化一组命令/参数值。它们存储在此结构中  */
+/* The LCD requires a set of initialization commands/parameters. 
+   They are stored in this structure. */
 typedef struct
 {
-    uint8_t cmd;
-    uint8_t data[16];
-    uint8_t databytes; /* 数据中没有数据；比特7＝设置后的延迟；0xFF=cmds结束 */
+    uint8_t cmd;           /* Command byte */
+    uint8_t data[16];      /* Data array for the command */
+    uint8_t databytes;     /* Number of data bytes; Bit 7 = post-command delay; 0xFF = end of commands */
 } lcd_init_cmd_t;
 
 /**
- * @brief       发送命令到LCD，使用轮询方式阻塞等待传输完成(由于数据传输量很少，因此在轮询方式处理可提高速度。使用中断方式的开销要超过轮询方式)
- * @param       cmd 传输的8位命令数据
- * @retval      无
+ * @brief       Sends a command to the LCD using polling mode. 
+ *              Blocks until the transmission is complete.
+ *              (Since the data transmission is minimal, polling mode improves speed. 
+ *              The overhead of interrupt handling exceeds that of polling in this case.)
+ * @param       cmd 8-bit command data to be transmitted
+ * @retval      None
  */
 void lcd_write_cmd(const uint8_t cmd)
 {
-    LCD_WR(0);
-    spi2_write_cmd(MY_LCD_Handle, cmd);
+    LCD_WR(0);                    // Set write signal to 0
+    spi2_write_cmd(MY_LCD_Handle, cmd); // Transmit the command via SPI
 }
 
 /**
- * @brief       发送数据到LCD，使用轮询方式阻塞等待传输完成(由于数据传输量很少，因此在轮询方式处理可提高速度。使用中断方式的开销要超过轮询方式)
- * @param       data 传输的8位数据
- * @retval      无
+ * @brief       Sends data to the LCD using polling mode. 
+ *              Blocks until the transmission is complete.
+ *              (Since the data transmission is minimal, polling mode improves speed. 
+ *              The overhead of interrupt handling exceeds that of polling in this case.)
+ * @param       data Pointer to the 8-bit data to be transmitted
+ * @param       len  Length of the data to be transmitted
+ * @retval      None
  */
 void lcd_write_data(const uint8_t *data, int len)
 {
-    LCD_WR(1);
-    spi2_write_data(MY_LCD_Handle, data, len);
+    LCD_WR(1);                          // Set write signal to 1
+    spi2_write_data(MY_LCD_Handle, data, len); // Transmit the data via SPI
 }
 
+
 /**
- * @brief       发送数据到LCD，使用轮询方式阻塞等待传输完成(由于数据传输量很少，因此在轮询方式处理可提高速度。使用中断方式的开销要超过轮询方式)
- * @param       data 传输的16位数据
- * @retval      无
+ * @brief       Sends 16-bit data to the LCD using polling mode. 
+ *              Blocks until the transmission is complete.
+ *              (Since the data transmission is minimal, polling mode improves speed. 
+ *              The overhead of interrupt handling exceeds that of polling in this case.)
+ * @param       data 16-bit data to be transmitted
+ * @retval      None
  */
 void lcd_write_data16(uint16_t data)
 {
-    uint8_t dataBuf[2] = {0,0};
-    dataBuf[0] = data >> 8;
-    dataBuf[1] = data & 0xFF;
-    LCD_WR(1);
-    spi2_write_data(MY_LCD_Handle, dataBuf,2);
+    uint8_t dataBuf[2] = {0, 0};
+    dataBuf[0] = data >> 8;              // Extract the high byte
+    dataBuf[1] = data & 0xFF;            // Extract the low byte
+    LCD_WR(1);                           // Set write signal to 1
+    spi2_write_data(MY_LCD_Handle, dataBuf, 2); // Transmit the 16-bit data via SPI
 }
 
 /**
- * @brief       设置窗口大小
- * @param       xstar：左上角x轴
- * @param       ystar：左上角y轴
- * @param       xend：右下角x轴
- * @param       yend：右下角y轴
- * @retval      无
+ * @brief       Set the window size
+ * @param       xstar: Top-left corner x-axis coordinate
+ * @param       ystar: Top-left corner y-axis coordinate
+ * @param       xend: Bottom-right corner x-axis coordinate
+ * @param       yend: Bottom-right corner y-axis coordinate
+ * @retval      None
  */
-void lcd_set_window(uint16_t xstar, uint16_t ystar,uint16_t xend,uint16_t yend)
+void lcd_set_window(uint16_t xstar, uint16_t ystar, uint16_t xend, uint16_t yend)
 {
-    uint8_t databuf[4] = {0,0,0,0};
-    
-    if (lcd_self.dir == 1)                  /* 横屏 */
+    uint8_t databuf[4] = {0, 0, 0, 0};
+
+    if (lcd_self.dir == 1)                  /* Landscape orientation */
     {
         databuf[0] = (xstar + 1) >> 8;
         databuf[1] = 0xFF & (xstar + 1);
         databuf[2] = (xend + 1) >> 8;
         databuf[3] = 0xFF & (xend + 1);
         lcd_write_cmd(lcd_self.setxcmd);
-        lcd_write_data(databuf,4);
+        lcd_write_data(databuf, 4);
 
         databuf[0] = (ystar + 26) >> 8;
         databuf[1] = 0xFF & (ystar + 26);
         databuf[2] = (yend + 26) >> 8;
         databuf[3] = 0xFF & (yend + 26);
         lcd_write_cmd(lcd_self.setycmd);
-        lcd_write_data(databuf,4);
+        lcd_write_data(databuf, 4);
     }
-    else
+    else                                    /* Portrait orientation */
     {
         databuf[0] = (xstar + 26) >> 8;
         databuf[1] = 0xFF & (xstar + 26);
         databuf[2] = (xend + 26) >> 8;
         databuf[3] = 0xFF & (xend + 26);
         lcd_write_cmd(lcd_self.setxcmd);
-        lcd_write_data(databuf,4);
+        lcd_write_data(databuf, 4);
 
         databuf[0] = (ystar + 1) >> 8;
         databuf[1] = 0xFF & (ystar + 1);
         databuf[2] = (yend + 26) >> 8;
         databuf[3] = 0xFF & (yend + 26);
         lcd_write_cmd(lcd_self.setycmd);
-        lcd_write_data(databuf,4);
+        lcd_write_data(databuf, 4);
     }
 
-    lcd_write_cmd(lcd_self.wramcmd);    /* 开始写入GRAM */
-}   
+    lcd_write_cmd(lcd_self.wramcmd);        /* Begin writing to GRAM */
+}
 
 /**
- * @brief       以一种颜色清空LCD屏
- * @param       color 清屏颜色
- * @retval      无
+ * @brief       Clear the LCD screen with a specified color
+ * @param       color The color to use for clearing the screen
+ * @retval      None
  */
 void lcd_clear(uint16_t color)
 {
     uint16_t i, j;
     uint8_t data[2] = {0};
 
-    data[0] = color >> 8;
-    data[1] = color;
+    data[0] = color >> 8;  // High byte of the color
+    data[1] = color;       // Low byte of the color
     
-    lcd_set_window(0, 0, lcd_self.width - 1, lcd_self.height - 1);
+    lcd_set_window(0, 0, lcd_self.width - 1, lcd_self.height - 1); // Set the full screen as the window
 
-    for(j = 0; j < LCD_BUF_SIZE / 2; j++)
+    for (j = 0; j < LCD_BUF_SIZE / 2; j++) // Prepare buffer with the color data
     {
-        lcd_buf[j * 2] =  data[0];
-        lcd_buf[j * 2 + 1] =  data[1];
+        lcd_buf[j * 2] = data[0];
+        lcd_buf[j * 2 + 1] = data[1];
     }
 
-    for(i = 0; i < (LCD_TOTAL_BUF_SIZE / LCD_BUF_SIZE); i++)
+    for (i = 0; i < (LCD_TOTAL_BUF_SIZE / LCD_BUF_SIZE); i++) // Write the buffer repeatedly to cover the entire screen
     {
         lcd_write_data(lcd_buf, LCD_BUF_SIZE);
     }
 }
 
 /**
- * @brief       在指定区域内填充单个颜色
- * @param       (sx,sy),(ex,ey):填充矩形对角坐标,区域大小为:(ex - sx + 1) * (ey - sy + 1)
- * @param       color:要填充的颜色(32位颜色,方便兼容LTDC)
- * @retval      无
+ * @brief       Fill a specified area with a single color
+ * @param       (sx, sy), (ex, ey): Coordinates of the opposite corners of the rectangle to fill. 
+ *              The region size is: (ex - sx + 1) * (ey - sy + 1).
+ * @param       color: The color to fill the area with (16-bit color for compatibility with LTDC)
+ * @retval      None
  */
 void lcd_fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color)
 {
@@ -161,36 +163,36 @@ void lcd_fill(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t color
     uint16_t width;
     uint16_t height;
 
-    width = ex - sx + 1;
-    height = ey - sy + 1;
-    lcd_set_window(sx, sy, ex, ey);
+    width = ex - sx + 1;    // Calculate the width of the fill area
+    height = ey - sy + 1;   // Calculate the height of the fill area
+    lcd_set_window(sx, sy, ex, ey); // Set the fill area as the active window
 
-    for (i = 0; i < height; i++)
+    for (i = 0; i < height; i++)    // Iterate over the height of the area
     {
-        for (j = 0; j < width; j++)
+        for (j = 0; j < width; j++) // Iterate over the width of the area
         {
-            lcd_write_data16(color);
+            lcd_write_data16(color); // Write the color data to the LCD
         }
     }
-    lcd_set_window(sx, sy, ex, ey);
+    lcd_set_window(sx, sy, ex, ey); // Reset the window to the original fill area
 }
 
 
 /**
- * @brief       设置光标的位置
- * @param       Xpos：左上角x轴
- * @param       Ypos：左上角y轴
- * @retval      无
+ * @brief       Set the position of the cursor
+ * @param       xpos: X-axis coordinate of the top-left corner
+ * @param       ypos: Y-axis coordinate of the top-left corner
+ * @retval      None
  */
 void lcd_set_cursor(uint16_t xpos, uint16_t ypos)
 {
-    lcd_set_window(xpos,ypos,xpos,ypos);
-} 
+    lcd_set_window(xpos, ypos, xpos, ypos); // Set the window to a single pixel at the cursor position
+}
 
 /**
- * @brief       设置LCD的自动扫描方向(对RGB屏无效)
- * @param       dir:0~7,代表8个方向(具体定义见lcd.h)
- * @retval      无
+ * @brief       Set the auto-scan direction of the LCD (not applicable for RGB screens)
+ * @param       dir: 0~7, representing 8 directions (specific definitions can be found in lcd.h)
+ * @retval      None
  */
 void lcd_scan_dir(uint8_t dir)
 {
@@ -198,7 +200,8 @@ void lcd_scan_dir(uint8_t dir)
     uint8_t dirreg = 0;
     uint16_t temp;
 
-    /* 横屏时，对1963不改变扫描方向, 其他IC改变扫描方向！竖屏时1963改变方向, 其他IC不改变扫描方向 */
+    /* For landscape mode, the 1963 IC does not change scan direction, other ICs do. 
+       For portrait mode, the 1963 IC changes direction, other ICs do not. */
     if (lcd_self.dir == 1)
     {
         dir = 1;
@@ -210,33 +213,33 @@ void lcd_scan_dir(uint8_t dir)
 
     switch (dir)
     {
-        case 0:                /* 竖屏右上角为0,0 */
+        case 0:                /* Portrait mode, top-right corner is (0, 0) */
             regval |= 0x08;
             break;
 
-        case 1:                /* 横屏左上角为0,0 */
+        case 1:                /* Landscape mode, top-left corner is (0, 0) */
             regval |= 0xA8;
             break;
 
-        case 2:                /* 竖屏左下角为0,0 */
+        case 2:                /* Portrait mode, bottom-left corner is (0, 0) */
             regval |= 0xC8;
             break;
 
-        case 3:                /* 横屏右下角为0,0 */
+        case 3:                /* Landscape mode, bottom-right corner is (0, 0) */
             regval |= 0x78;
             break;
     }
 
-    dirreg = 0x36;                              /* 对绝大部分驱动IC, 由0X36寄存器控制 */
+    dirreg = 0x36;                              /* For most driver ICs, the 0x36 register controls this setting */
     
-    uint8_t date_send[1] = {regval};
+    uint8_t data_send[1] = {regval};            // Data to be sent to the register
     
-    lcd_write_cmd(dirreg);
-    lcd_write_data(date_send,1);
+    lcd_write_cmd(dirreg);                      // Write command to set direction
+    lcd_write_data(data_send, 1);               // Send the direction data
     
     if (regval & 0x20)
     {
-        if (lcd_self.width < lcd_self.height)   /* 交换X,Y */
+        if (lcd_self.width < lcd_self.height)   /* Swap X and Y dimensions */
         {
             temp = lcd_self.width;
             lcd_self.width = lcd_self.height;
@@ -245,7 +248,7 @@ void lcd_scan_dir(uint8_t dir)
     }
     else
     {
-        if (lcd_self.width > lcd_self.height)   /* 交换X,Y */
+        if (lcd_self.width > lcd_self.height)   /* Swap X and Y dimensions */
         {
             temp = lcd_self.width;
             lcd_self.width = lcd_self.height;
@@ -253,188 +256,188 @@ void lcd_scan_dir(uint8_t dir)
         }
     }
     
-    lcd_set_window(0, 0, lcd_self.width,lcd_self.height);
+    lcd_set_window(0, 0, lcd_self.width, lcd_self.height); // Reset the window size
 }
 
 /**
- * @brief       设置LCD显示方向
- * @param       dir:0,竖屏; 1,横屏
- * @retval      无
+ * @brief       Set the display orientation of the LCD
+ * @param       dir: 0 for portrait mode; 1 for landscape mode
+ * @retval      None
  */
 void lcd_display_dir(uint8_t dir)
 {
     lcd_self.dir = dir;
     
-    if (lcd_self.dir == 0)                  /* 竖屏 */
+    if (lcd_self.dir == 0)                  /* Portrait mode */
     {
-        lcd_self.width      = 80;
-        lcd_self.height     = 160;
-        lcd_self.wramcmd    = 0X2C;
-        lcd_self.setxcmd    = 0X2A;
-        lcd_self.setycmd    = 0X2B;
+        lcd_self.width      = 80;          // Default width for portrait
+        lcd_self.height     = 160;         // Default height for portrait
+        lcd_self.wramcmd    = 0x2C;        // Write RAM command
+        lcd_self.setxcmd    = 0x2A;        // Set X coordinate command
+        lcd_self.setycmd    = 0x2B;        // Set Y coordinate command
     }
-    else                                    /* 横屏 */
+    else                                    /* Landscape mode */
     {
-        lcd_self.width      = 160;          /* 默认宽度 */
-        lcd_self.height     = 80;           /* 默认高度 */
-        lcd_self.wramcmd    = 0X2C;
-        lcd_self.setxcmd    = 0X2A;
-        lcd_self.setycmd    = 0X2B;
+        lcd_self.width      = 160;         // Default width for landscape
+        lcd_self.height     = 80;          // Default height for landscape
+        lcd_self.wramcmd    = 0x2C;        // Write RAM command
+        lcd_self.setxcmd    = 0x2A;        // Set X coordinate command
+        lcd_self.setycmd    = 0x2B;        // Set Y coordinate command
     }
 
-    lcd_scan_dir(lcd_self.dir);             /* 默认扫描方向 */
+    lcd_scan_dir(lcd_self.dir);             // Set default scan direction
 }
 
 /**
- * @brief       硬件复位
- * @param       self_in：LCD结构体
- * @retval      无
+ * @brief       Perform a hardware reset on the LCD
+ * @param       None
+ * @retval      None
  */
 void lcd_hard_reset(void)
 {
-    /* 复位显示屏 */
-    LCD_RST(0);
-    vTaskDelay(200);
-    LCD_RST(1);
-    vTaskDelay(200);
+    /* Reset the display */
+    LCD_RST(0);          // Pull the reset pin low
+    vTaskDelay(200);      // Delay for 200ms
+    LCD_RST(1);          // Pull the reset pin high
+    vTaskDelay(200);      // Delay for 200ms
 }
 
 /**
- * @brief       绘画一个像素点
- * @param       self_in：LCD结构体
- * @param       x：x轴坐标
- * @param       y：y轴坐标
- * @param       color：颜色值
- * @retval      无
+ * @brief       Draw a single pixel on the LCD
+ * @param       x: X-axis coordinate of the pixel
+ * @param       y: Y-axis coordinate of the pixel
+ * @param       color: Color value of the pixel
+ * @retval      None
  */
 void lcd_draw_pixel(uint16_t x, uint16_t y, uint16_t color)
 {
-    lcd_set_cursor(x, y);
-    lcd_write_data16(color);
+    lcd_set_cursor(x, y);       // Set the cursor to the specified coordinates
+    lcd_write_data16(color);    // Write the color data for the pixel
 }
 
 /**
- * @brief       画线函数(直线、斜线)
- * @param       x1,y1   起点坐标
- * @param       x2,y2   终点坐标
- * @param       color 填充颜色
- * @retval      无
+ * @brief       Draw a line (straight or diagonal) on the LCD
+ * @param       x1, y1: Starting point coordinates
+ * @param       x2, y2: Ending point coordinates
+ * @param       color: Color value to fill the line
+ * @retval      None
  */
 void lcd_draw_line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color)
 {
     uint16_t t; 
     int xerr = 0, yerr = 0, delta_x, delta_y, distance; 
-    
     int incx, incy, urow, ucol; 
 
-    delta_x = x2 - x1;                      /* 计算坐标增量 */
-    delta_y = y2 - y1; 
-    urow = x1; 
-    ucol = y1; 
+    delta_x = x2 - x1;                      /* Calculate the x-coordinate increment */
+    delta_y = y2 - y1;                      /* Calculate the y-coordinate increment */
+    urow = x1;                              /* Initialize the current x-coordinate */
+    ucol = y1;                              /* Initialize the current y-coordinate */
     
     if (delta_x > 0)
     {
-        incx = 1;                           /* 设置单步方向 */
+        incx = 1;                           /* Set step direction for x */
     }
     else if (delta_x == 0)
     {
-        incx = 0;                           /* 垂直线 */
+        incx = 0;                           /* Vertical line */
     }
     else
     {
-        incx =-1;
-        delta_x =-delta_x;
+        incx = -1;
+        delta_x = -delta_x;
     } 
-    if(delta_y > 0)
+    if (delta_y > 0)
     {
-        incy = 1; 
+        incy = 1;                           /* Set step direction for y */
     }
-    else if(delta_y == 0)
+    else if (delta_y == 0)
     {
-        incy = 0;                           /* 水平线 */
+        incy = 0;                           /* Horizontal line */
     }
     else
     {
-        incy =-1;
-        delta_y=-delta_y;
+        incy = -1;
+        delta_y = -delta_y;
     } 
     
-    if( delta_x>delta_y)
+    if (delta_x > delta_y)
     {
-        distance = delta_x;                 /* 选取基本增量坐标轴 */
+        distance = delta_x;                 /* Use x as the primary axis */
     }
     else
     {
-        distance = delta_y; 
+        distance = delta_y;                 /* Use y as the primary axis */
     }
     
-    for (t = 0;t <= distance + 1;t++ )      /* 画线输出 */
+    for (t = 0; t <= distance + 1; t++)     /* Draw the line */
     {
-        lcd_draw_pixel(urow,ucol,color);    /* 画点 */ 
-        xerr += delta_x ; 
-        yerr += delta_y ; 
+        lcd_draw_pixel(urow, ucol, color);  /* Plot the pixel */ 
+        xerr += delta_x; 
+        yerr += delta_y; 
         
-        if(xerr>distance)
+        if (xerr > distance)
         { 
             xerr -= distance; 
-            urow += incx; 
+            urow += incx;                   /* Increment x */
         } 
         
         if (yerr > distance)
         { 
             yerr -= distance; 
-            ucol += incy; 
+            ucol += incy;                   /* Increment y */
         } 
     } 
 }
 
 /**
- * @brief       画水平线
- * @param       x0,y0: 起点坐标
- * @param       len  : 线长度
- * @param       color: 矩形的颜色
- * @retval      无
+ * @brief       Draw a horizontal line
+ * @param       x: Starting x-coordinate
+ * @param       y: Starting y-coordinate
+ * @param       len: Length of the line
+ * @param       color: Color of the line
+ * @retval      None
  */
 void lcd_draw_hline(uint16_t x, uint16_t y, uint16_t len, uint16_t color)
 {
-    if ((len == 0) || (x > lcd_self.width) || (y > lcd_self.height))return;
+    if ((len == 0) || (x > lcd_self.width) || (y > lcd_self.height)) return;
 
-    lcd_fill(x, y, x + len - 1, y, color);
+    lcd_fill(x, y, x + len - 1, y, color); // Fill a rectangle with height 1 as the horizontal line
 }
 
 /**
- * @brief       画一个矩形
- * @param       x1,y1   起点坐标
- * @param       x2,y2   终点坐标
- * @param       color 填充颜色
- * @retval      无
+ * @brief       Draw a rectangle
+ * @param       x0, y0: Coordinates of the top-left corner
+ * @param       x1, y1: Coordinates of the bottom-right corner
+ * @param       color: Color of the rectangle
+ * @retval      None
  */
-void lcd_draw_rectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1,uint16_t color)
+void lcd_draw_rectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)
 {
-    lcd_draw_line(x0, y0, x1, y0,color);
-    lcd_draw_line(x0, y0, x0, y1,color);
-    lcd_draw_line(x0, y1, x1, y1,color);
-    lcd_draw_line(x1, y0, x1, y1,color);
+    lcd_draw_line(x0, y0, x1, y0, color); // Top edge
+    lcd_draw_line(x0, y0, x0, y1, color); // Left edge
+    lcd_draw_line(x0, y1, x1, y1, color); // Bottom edge
+    lcd_draw_line(x1, y0, x1, y1, color); // Right edge
 }
 
 /**
- * @brief       画一个圆
- * @param       x0,y0   圆心坐标
- * @param       r   圆半径
- * @param       color 填充颜色
- * @retval      无
+ * @brief       Draw a circle
+ * @param       x0, y0: Coordinates of the circle's center
+ * @param       r: Radius of the circle
+ * @param       color: Color of the circle
+ * @retval      None
  */
 void lcd_draw_circle(uint16_t x0, uint16_t y0, uint16_t r, uint16_t color)
 {
     int a, b;
     int di;
-    a = 0;
-    b = r;
-    di = 3 - (r << 1);
+
+    a = 0;              // X-coordinate offset
+    b = r;              // Y-coordinate offset
+    di = 3 - (r << 1);  // Decision parameter for midpoint algorithm
 
     while (a <= b)
     {
-        lcd_draw_pixel(x0 - b, y0 - a, color);
+        lcd_draw_pixel(x0 - b, y0 - a, color); // 8-way symmetry
         lcd_draw_pixel(x0 + b, y0 - a, color);
         lcd_draw_pixel(x0 - a, y0 + b, color);
         lcd_draw_pixel(x0 - b, y0 - a, color);
@@ -445,7 +448,7 @@ void lcd_draw_circle(uint16_t x0, uint16_t y0, uint16_t r, uint16_t color)
         lcd_draw_pixel(x0 - b, y0 + a, color);
         a++;
 
-        if (di < 0)
+        if (di < 0) // Update decision parameter
         {
             di += 4 * a + 6;
         }
@@ -455,57 +458,57 @@ void lcd_draw_circle(uint16_t x0, uint16_t y0, uint16_t r, uint16_t color)
             b--;
         }
 
-        lcd_draw_pixel(x0 + a, y0 + b, color);
+        lcd_draw_pixel(x0 + a, y0 + b, color); // Draw additional point due to symmetry
     }
 }
 
 /**
- * @brief       在指定位置显示一个字符
- * @param       x,y  : 坐标
- * @param       chr  : 要显示的字符:" "--->"~"
- * @param       size : 字体大小 12/16/24/32
- * @param       mode : 叠加方式(1); 非叠加方式(0);
- * @param       color : 字符的颜色;
- * @retval      无
+ * @brief       Display a character at a specified position
+ * @param       x, y  : Coordinates where the character will be displayed
+ * @param       chr   : Character to display, from " " to "~"
+ * @param       size  : Font size, options: 12/16/24/32
+ * @param       mode  : Overlay mode (1) or non-overlay mode (0)
+ * @param       color : Color of the character
+ * @retval      None
  */
 void lcd_show_char(uint16_t x, uint16_t y, uint8_t chr, uint8_t size, uint8_t mode, uint16_t color)
 {
-    uint8_t temp = 0,t1 = 0, t = 0;
+    uint8_t temp = 0, t1 = 0, t = 0;
     uint8_t *pfont = 0;
-    uint8_t csize = 0;                                      /* 得到字体一个字符对应点阵集所占的字节数 */
+    uint8_t csize = 0;                                      /* Number of bytes for the font matrix of one character */
     uint16_t colortemp = 0;
     uint8_t sta = 0;
 
-    csize = (size / 8 + ((size % 8) ? 1 : 0)) * (size / 2); /* 得到字体一个字符对应点阵集所占的字节数 */
-    chr = chr - ' ';                                        /* 得到偏移后的值（ASCII字库是从空格开始取模，所以-' '就是对应字符的字库） */
+    csize = (size / 8 + ((size % 8) ? 1 : 0)) * (size / 2); /* Calculate font matrix byte size for one character */
+    chr = chr - ' ';                                        /* Offset value (ASCII font starts at space character) */
 
     if ((x > (lcd_self.width - size / 2)) || (y > (lcd_self.height - size)))
     {
         return;
     }
 
-    lcd_set_window(x, y, x + size / 2 - 1, y + size - 1);   /* (x,y,x+8-1,y+16-1) */
+    lcd_set_window(x, y, x + size / 2 - 1, y + size - 1);   /* Set the window area for the character */
 
     switch (size)
     {
         case 12:
-            pfont = (uint8_t *)asc2_1206[chr];              /* 调用1206字体 */
+            pfont = (uint8_t *)asc2_1206[chr];              /* Use 12x6 font */
             break;
 
         case 16:
-            pfont = (uint8_t *)asc2_1608[chr];              /* 调用1608字体 */
+            pfont = (uint8_t *)asc2_1608[chr];              /* Use 16x8 font */
             break;
 
         case 24:
-            pfont = (uint8_t *)asc2_2412[chr];              /* 调用2412字体 */
+            pfont = (uint8_t *)asc2_2412[chr];              /* Use 24x12 font */
             break;
 
         case 32:
-            pfont = (uint8_t *)asc2_3216[chr];              /* 调用3216字体 */
+            pfont = (uint8_t *)asc2_3216[chr];              /* Use 32x16 font */
             break;
 
         default:
-            return ;
+            return;
     }
 
     if (size != 24)
@@ -514,21 +517,21 @@ void lcd_show_char(uint16_t x, uint16_t y, uint8_t chr, uint8_t size, uint8_t mo
         
         for (t = 0; t < csize; t++)
         {
-            temp = pfont[t];                                /* 获取字符的点阵数据 */
+            temp = pfont[t];                                /* Retrieve font matrix data */
 
             for (t1 = 0; t1 < 8; t1++)
             {
-                    if (temp & 0x80)
-                    {
-                        colortemp = color;
-                    }
-                    else if (mode == 0)                     /* 无效点,不显示 */
-                    {
-                        colortemp = 0xFFFF;
-                    }
+                if (temp & 0x80)
+                {
+                    colortemp = color;
+                }
+                else if (mode == 0)                         /* Transparent point, do not display */
+                {
+                    colortemp = 0xFFFF;
+                }
 
-                    lcd_write_data16(colortemp);
-                    temp <<= 1;
+                lcd_write_data16(colortemp);
+                temp <<= 1;
             }
         }
     }
@@ -551,11 +554,11 @@ void lcd_show_char(uint16_t x, uint16_t y, uint8_t chr, uint8_t size, uint8_t mo
 
             for (t1 = 0; t1 < sta; t1++)
             {
-                if(temp & 0x80)
+                if (temp & 0x80)
                 {
                     colortemp = color;
                 }
-                else if (mode == 0)                         /* 无效点,不显示 */
+                else if (mode == 0)                         /* Transparent point, do not display */
                 {
                     colortemp = 0xFFFF;
                 }
@@ -568,156 +571,158 @@ void lcd_show_char(uint16_t x, uint16_t y, uint8_t chr, uint8_t size, uint8_t mo
 }
 
 /**
- * @brief       m^n函数
- * @param       m,n     输入参数
- * @retval      m^n次方
+ * @brief       Function to calculate m raised to the power of n (m^n)
+ * @param       m: Base value
+ * @param       n: Exponent value
+ * @retval      Result of m raised to the power of n (m^n)
  */
 uint32_t lcd_pow(uint8_t m, uint8_t n)
 {
     uint32_t result = 1;
 
-    while(n--)result *= m;
+    while (n--) result *= m; // Multiply the result by m, n times
 
     return result;
 }
 
 /**
- * @brief       显示len个数字
- * @param       x,y : 起始坐标
- * @param       num : 数值(0 ~ 2^32)
- * @param       len : 显示数字的位数
- * @param       size: 选择字体 12/16/24/32
- * @retval      无
+ * @brief       Display a number with a specified length
+ * @param       x, y : Starting coordinates
+ * @param       num  : Number to display (0 ~ 2^32)
+ * @param       len  : Number of digits to display
+ * @param       size : Font size (12/16/24/32)
+ * @param       color: Color of the number
+ * @retval      None
  */
 void lcd_show_num(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint8_t size, uint16_t color)
 {
     uint8_t t, temp;
     uint8_t enshow = 0;
 
-    for (t = 0; t < len; t++)                                               /* 按总显示位数循环 */
+    for (t = 0; t < len; t++)                                               /* Loop through the number of digits to display */
     {
-        temp = (num / lcd_pow(10, len - t - 1)) % 10;                       /* 获取对应位的数字 */
+        temp = (num / lcd_pow(10, len - t - 1)) % 10;                       /* Extract the digit at the current position */
 
-        if (enshow == 0 && t < (len - 1))                                   /* 没有使能显示,且还有位要显示 */
+        if (enshow == 0 && t < (len - 1))                                   /* If display not enabled and there are more digits */
         {
             if (temp == 0)
             {
-                lcd_show_char(x + (size / 2)*t, y, ' ', size, 0, color);    /* 显示空格,占位 */
-                continue;                                                   /* 继续下个一位 */
+                lcd_show_char(x + (size / 2) * t, y, ' ', size, 0, color);  /* Display a space as a placeholder */
+                continue;                                                   /* Skip to the next digit */
             }
             else
             {
-                enshow = 1;                                                 /* 使能显示 */
+                enshow = 1;                                                 /* Enable display */
             }
-
         }
 
-        lcd_show_char(x + (size / 2)*t, y, temp + '0', size, 0, color);     /* 显示字符 */
+        lcd_show_char(x + (size / 2) * t, y, temp + '0', size, 0, color);   /* Display the digit as a character */
     }
 }
 
 /**
- * @brief       扩展显示len个数字(高位是0也显示)
- * @param       x,y : 起始坐标
- * @param       num : 数值(0 ~ 2^32)
- * @param       len : 显示数字的位数
- * @param       size: 选择字体 12/16/24/32
- * @param       mode: 显示模式
- *              [7]:0,不填充;1,填充0.
- *              [6:1]:保留
- *              [0]:0,非叠加显示;1,叠加显示.
- * @param       color : 数字的颜色;
- * @retval      无
+ * @brief       Extended display of a number with a specified length (including leading zeros)
+ * @param       x, y : Starting coordinates
+ * @param       num  : Number to display (0 ~ 2^32)
+ * @param       len  : Number of digits to display
+ * @param       size : Font size (12/16/24/32)
+ * @param       mode : Display mode
+ *              [7]: 0, no padding; 1, pad with zeros.
+ *              [6:1]: Reserved
+ *              [0]: 0, non-overlay display; 1, overlay display.
+ * @param       color: Color of the number
+ * @retval      None
  */
 void lcd_show_xnum(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint8_t size, uint8_t mode, uint16_t color)
 {
     uint8_t t, temp;
     uint8_t enshow = 0;
 
-    for (t = 0; t < len; t++)                                                           /* 按总显示位数循环 */
+    for (t = 0; t < len; t++)                                                           /* Loop through the number of digits to display */
     {
-        temp = (num / lcd_pow(10, len - t - 1)) % 10;                                   /* 获取对应位的数字 */
+        temp = (num / lcd_pow(10, len - t - 1)) % 10;                                   /* Extract the digit at the current position */
 
-        if (enshow == 0 && t < (len - 1))                                               /* 没有使能显示,且还有位要显示 */
+        if (enshow == 0 && t < (len - 1))                                               /* If display not enabled and there are more digits */
         {
             if (temp == 0)
             {
-                if (mode & 0X80)                                                        /* 高位需要填充0 */
+                if (mode & 0x80)                                                        /* Pad with zero if enabled */
                 {
-                    lcd_show_char(x + (size / 2)*t, y, '0', size, mode & 0X01, color);  /* 用0占位 */
+                    lcd_show_char(x + (size / 2) * t, y, '0', size, mode & 0x01, color); /* Display '0' as placeholder */
                 }
                 else
                 {
-                    lcd_show_char(x + (size / 2)*t, y, ' ', size, mode & 0X01, color);  /* 用空格占位 */
+                    lcd_show_char(x + (size / 2) * t, y, ' ', size, mode & 0x01, color); /* Display space as placeholder */
                 }
                 continue;
             }
             else
             {
-                enshow = 1;                                                             /* 使能显示 */
+                enshow = 1;                                                             /* Enable display */
             }
         }
-        lcd_show_char(x + (size / 2)*t, y, temp + '0', size, mode & 0X01, color);
+        lcd_show_char(x + (size / 2) * t, y, temp + '0', size, mode & 0x01, color);     /* Display the digit as a character */
     }
 }
 
-
 /**
- * @brief       显示字符串
- * @param       x,y         : 起始坐标
- * @param       width,height: 区域大小
- * @param       size        : 选择字体 12/16/24/32
- * @param       p           : 字符串首地址
- * @retval      无
+ * @brief       Display a string within a specified area
+ * @param       x, y         : Starting coordinates
+ * @param       width, height: Dimensions of the display area
+ * @param       size         : Font size (12/16/24/32)
+ * @param       p            : Pointer to the string
+ * @param       color        : Color of the string
+ * @retval      None
  */
 void lcd_show_string(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t size, char *p, uint16_t color)
 {
-    uint8_t x0 = x;
-    width += x;
-    height += y;
+    uint8_t x0 = x;          // Save the initial x-coordinate
+    width += x;              // Calculate the maximum x-boundary
+    height += y;             // Calculate the maximum y-boundary
 
-    while ((*p <= '~') && (*p >= ' '))   /* 判断是不是非法字符! */
+    while ((*p <= '~') && (*p >= ' '))  /* Check if the character is valid */
     {
-        if (x >= width)
+        if (x >= width)      // If the x-coordinate exceeds the width
         {
-            x = x0;
-            y += size;
+            x = x0;          // Reset to the initial x-coordinate
+            y += size;       // Move to the next line
         }
 
-        if (y >= height)break;  /* 退出 */
+        if (y >= height)     // If the y-coordinate exceeds the height, exit
+            break;
 
-        lcd_show_char(x, y, *p, size, 0, color);
-        x += size / 2;
-        p++;
+        lcd_show_char(x, y, *p, size, 0, color); // Display the current character
+        x += size / 2;       // Move to the next character position
+        p++;                 // Advance the string pointer
     }
 }
 
 /**
- * @brief       打开LCD
- * @param       self_in：SPI控制块
- * @retval      mp_const_none：初始化成功
+ * @brief       Turn on the LCD
+ * @param       None
+ * @retval      None (Initialization successful)
  */
 void lcd_on(void)
 {
-    LCD_PWR(1);
-    vTaskDelay(10);
+    LCD_PWR(1);          // Power on the LCD
+    vTaskDelay(10);       // Delay for 10 ms
 }
 
 /**
- * @brief       关闭LCD
- * @param       self_in：SPI控制块
- * @retval      mp_const_none：初始化成功
+ * @brief       Turn off the LCD
+ * @param       None
+ * @retval      None (Initialization successful)
  */
 void lcd_off(void)
 {
-    LCD_PWR(0);
-    vTaskDelay(10);
+    LCD_PWR(0);          // Power off the LCD
+    vTaskDelay(10);       // Delay for 10 ms
 }
 
 /**
- * @brief       LCD初始化
- * @param       无
- * @retval      无
+ * @brief       Initialize the LCD
+ * @param       None
+ * @retval      None
  */
 void lcd_init(void)
 {
@@ -725,73 +730,71 @@ void lcd_init(void)
     esp_err_t ret = 0;
     
     lcd_self.dir = 0;
-    lcd_self.wr = LCD_NUM_WR;                                       /* 配置WR引脚 */
-    lcd_self.cs = LCD_NUM_CS;                                       /* 配置CS引脚 */
-    lcd_self.bl = LCD_NUM_BL;                                       /* 配置BL引脚 */
-    lcd_self.rst = LCD_NUM_RST;                                     /* 配置RST引脚 */
+    lcd_self.wr = LCD_NUM_WR;                                       /* Configure WR pin */
+    lcd_self.cs = LCD_NUM_CS;                                       /* Configure CS pin */
+    lcd_self.bl = LCD_NUM_BL;                                       /* Configure BL pin */
+    lcd_self.rst = LCD_NUM_RST;                                     /* Configure RST pin */
 
     gpio_config_t gpio_init_struct;
 
-    /* SPI驱动接口配置 */
+    /* SPI driver interface configuration */
     spi_device_interface_config_t devcfg = {
-        .clock_speed_hz = 60 * 1000 * 1000,                         /* SPI时钟 */
-        .mode = 0,                                                  /* SPI模式0 */
-        .spics_io_num = lcd_self.cs,                                /* SPI设备引脚 */
-        .queue_size = 7,                                            /* 事务队列尺寸 7个 */
+        .clock_speed_hz = 60 * 1000 * 1000,                         /* SPI clock frequency */
+        .mode = 0,                                                  /* SPI mode 0 */
+        .spics_io_num = lcd_self.cs,                                /* SPI device pin */
+        .queue_size = 7,                                            /* Transaction queue size */
     };
     
-    /* 添加SPI总线设备 */
-    ret = spi_bus_add_device(SPI2_HOST, &devcfg, &MY_LCD_Handle);   /* 配置SPI总线设备 */
+    /* Add SPI device to the bus */
+    ret = spi_bus_add_device(SPI2_HOST, &devcfg, &MY_LCD_Handle);   /* Configure SPI bus device */
     ESP_ERROR_CHECK(ret);
 
-    /* WR管脚 */
-    gpio_init_struct.intr_type = GPIO_INTR_DISABLE;                 /* 失能引脚中断 */
-    gpio_init_struct.mode = GPIO_MODE_OUTPUT;                       /* 配置输出模式 */
-    gpio_init_struct.pin_bit_mask = 1ull << lcd_self.wr ;           /* 配置引脚位掩码 */
-    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_DISABLE;          /* 失能下拉 */
-    gpio_init_struct.pull_up_en = GPIO_PULLUP_ENABLE;               /* 使能上拉 */
-    gpio_config(&gpio_init_struct);                                 /* 引脚配置 */
-    /* BL管脚 */
-    gpio_init_struct.intr_type = GPIO_INTR_DISABLE;                 /* 失能引脚中断 */
-    gpio_init_struct.mode = GPIO_MODE_OUTPUT;                       /* 配置输出模式 */
-    gpio_init_struct.pin_bit_mask = 1ull << lcd_self.bl;            /* 配置引脚位掩码 */
-    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_ENABLE;           /* 使能下拉 */
-    gpio_init_struct.pull_up_en = GPIO_PULLUP_DISABLE;              /* 失能上拉 */
-    gpio_config(&gpio_init_struct);                                 /* 引脚配置 */
-    /* RST管脚 */
-    gpio_init_struct.intr_type = GPIO_INTR_DISABLE;                 /* 失能引脚中断 */
-    gpio_init_struct.mode = GPIO_MODE_OUTPUT;                       /* 配置输出模式 */
-    gpio_init_struct.pin_bit_mask = 1ull << lcd_self.rst;           /* 配置引脚位掩码 */
-    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_DISABLE;          /* 失能下拉 */
-    gpio_init_struct.pull_up_en = GPIO_PULLUP_ENABLE;               /* 使能上拉 */
-    gpio_config(&gpio_init_struct);                                 /* 引脚配置 */
-    lcd_off();
-    lcd_hard_reset();                                               /* LCD硬件复位 */
-    /* 0.96寸lcd屏幕初始化序列 */
+    /* Configure WR pin */
+    gpio_init_struct.intr_type = GPIO_INTR_DISABLE;                 /* Disable pin interrupt */
+    gpio_init_struct.mode = GPIO_MODE_OUTPUT;                       /* Set as output mode */
+    gpio_init_struct.pin_bit_mask = 1ull << lcd_self.wr;            /* Configure pin bit mask */
+    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_DISABLE;          /* Disable pull-down */
+    gpio_init_struct.pull_up_en = GPIO_PULLUP_ENABLE;               /* Enable pull-up */
+    gpio_config(&gpio_init_struct);                                 /* Apply pin configuration */
+    /* Configure BL pin */
+    gpio_init_struct.pin_bit_mask = 1ull << lcd_self.bl;            /* Configure pin bit mask */
+    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_ENABLE;           /* Enable pull-down */
+    gpio_init_struct.pull_up_en = GPIO_PULLUP_DISABLE;              /* Disable pull-up */
+    gpio_config(&gpio_init_struct);                                 /* Apply pin configuration */
+    /* Configure RST pin */
+    gpio_init_struct.pin_bit_mask = 1ull << lcd_self.rst;           /* Configure pin bit mask */
+    gpio_init_struct.pull_down_en = GPIO_PULLDOWN_DISABLE;          /* Disable pull-down */
+    gpio_init_struct.pull_up_en = GPIO_PULLUP_ENABLE;               /* Enable pull-up */
+    gpio_config(&gpio_init_struct);                                 /* Apply pin configuration */
+
+    lcd_off();                                                      /* Turn off the LCD */
+    lcd_hard_reset();                                               /* Perform hardware reset */
+
+    /* Initialization sequence for 0.96 inch LCD */
     lcd_init_cmd_t ili_init_cmds[] =
     {
         {0x11, {0}, 0x80},
         {0x21, {0}, 0x80},
-        {0xB1, {0x05,0x3A,0x3A}, 3},
-        {0xB2, {0x05,0x3A,0x3A}, 3},
-        {0xB3, {0x05,0x3A,0x3A,0x05,0x3A,0x3A}, 6},
+        {0xB1, {0x05, 0x3A, 0x3A}, 3},
+        {0xB2, {0x05, 0x3A, 0x3A}, 3},
+        {0xB3, {0x05, 0x3A, 0x3A, 0x05, 0x3A, 0x3A}, 6},
         {0xB4, {0x03}, 1},
-        {0xC0, {0x62,0x02,0x04}, 3},
+        {0xC0, {0x62, 0x02, 0x04}, 3},
         {0xC1, {0xC0}, 1},
-        {0xC2, {0x0D,0x00}, 2},
-        {0xC3, {0x8D,0x6A}, 2},
-        {0xC4, {0x8D,0xEE}, 2},
+        {0xC2, {0x0D, 0x00}, 2},
+        {0xC3, {0x8D, 0x6A}, 2},
+        {0xC4, {0x8D, 0xEE}, 2},
         {0xC5, {0x0E}, 1},
-        {0xE0, {0x10, 0x0E, 0x02, 0x03, 0x0E, 0x07, 0x02, 0x07, 0x0A, 0x12, 0x27, 0x37, 0x00, 0x0D , 0x0E , 0x10}, 16},
-        {0xE1, {0x10, 0x0E, 0x03, 0x03, 0x0F, 0x06, 0x02, 0x08, 0x0A, 0x13, 0x26, 0x36, 0x00, 0x0D , 0x0E , 0x10}, 16},
+        {0xE0, {0x10, 0x0E, 0x02, 0x03, 0x0E, 0x07, 0x02, 0x07, 0x0A, 0x12, 0x27, 0x37, 0x00, 0x0D, 0x0E, 0x10}, 16},
+        {0xE1, {0x10, 0x0E, 0x03, 0x03, 0x0F, 0x06, 0x02, 0x08, 0x0A, 0x13, 0x26, 0x36, 0x00, 0x0D, 0x0E, 0x10}, 16},
         {0x3A, {0x05}, 1},
         {0x36, {0xA8}, 1},
         {0x29, {0}, 0x80},
-        {0, {0}, 0xff},
+        {0, {0}, 0xFF},
     };
 
-    /* 发送初始化序列 */
-    while (ili_init_cmds[cmd].databytes != 0xff)
+    /* Send initialization sequence */
+    while (ili_init_cmds[cmd].databytes != 0xFF)
     {
         lcd_write_cmd(ili_init_cmds[cmd].cmd);
         lcd_write_data(ili_init_cmds[cmd].data, ili_init_cmds[cmd].databytes & 0x1F);
@@ -804,7 +807,8 @@ void lcd_init(void)
         cmd++;
     }
 
-    lcd_display_dir(1);                                             /* 设置屏幕方向 */
-    lcd_clear(WHITE);                                               /* 清屏 */
-    lcd_on();
+    lcd_display_dir(1);                                             /* Set screen orientation */
+    lcd_clear(WHITE);                                               /* Clear the screen */
+    lcd_on();                                                       /* Turn on the LCD */
 }
+
