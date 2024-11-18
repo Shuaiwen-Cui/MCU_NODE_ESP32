@@ -122,6 +122,8 @@ plugins:
             ARCHITECTURE: 架构
             MAIN-CONTROL: 主控
             HARDWARE: 硬件
+            ESPTIMER: 定时器
+            SPI: SPI
             PERCEPTION: 感知
             COMMUNICATION: 通信
             INTERFACING: 交互
@@ -129,6 +131,7 @@ plugins:
             RGB: RGB灯
             KEY: 按键
             KEY-INTERRUPT: 按键中断
+            LCD: 液晶显示屏
 
 # # Hooks
 # hooks:
@@ -270,6 +273,8 @@ nav:
       - "ARCHITECTURE/architecture.md"
   - MAIN-CONTROL:
       - HARDWARE: "MAIN-CONTROL/HARDWARE/hardware.md"
+      - ESPTIMER: "MAIN-CONTROL/ESPTIMER/esptimer.md"
+      - SPI: "MAIN-CONTROL/SPI/spi.md"
   - PERCEPTION:
       - "PERCEPTION/perception.md"
   - COMMUNICATION:
@@ -281,6 +286,7 @@ nav:
       - KEY: 
         - KEY: "INTERFACING/KEY/key.md"
         - KEY-INTERRUPT: "INTERFACING/KEY/key-itr.md"
+      - LCD: "INTERFACING/LCD/lcd.md"
 
 
     

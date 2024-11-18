@@ -110,4 +110,4 @@ project-name/
     - build 文件夹是编译生成的文件夹，存放编译生成的文件。 
 
 !!! tip "重要提示"
-    每次增加新的模块，一定要记得在对应CMakelists.txt文件中添加新的模块路径，否则编译时会出现找不到文件的错误。
+    每次增加新的模块，一定要记得在对应CMakelists.txt文件中添加新的模块路径，否则编译时会出现找不到文件的错误。除了模块（source and include）需要添加路径外，依赖（requirement）也需要在对应的CMakelists.txt文件中添加。比如，如果使用了GPIO相关功能，则需要添加driver，如果使用了定时器，则需要添加esp_timer。

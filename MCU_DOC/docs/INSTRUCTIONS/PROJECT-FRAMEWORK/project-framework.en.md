@@ -65,4 +65,4 @@ project-name/
     - build folder: auto-generated build directory.
 
 !!! tip "Important Reminder"
-    Every time you add a new component, you need to add the component to the `CMakeLists.txt` file in the `components` directory. The same applies to the `tinyshm` directory. Otherwise, the component will not be compiled into the project.
+    Every time you add a new module, you must remember to add the new module path in the corresponding CMakelists.txt file, otherwise there will be an error that the file cannot be found during compilation. In addition to adding the path of the module (source and include), the dependency (requirement) also needs to be added in the corresponding CMakelists.txt file. For example, if GPIO related functions are used, you need to add driver, and if a timer is used, you need to add esp_timer.

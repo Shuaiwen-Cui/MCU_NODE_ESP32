@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "ESP32",
-    "project_version":    "1614e73-dirty",
+    "project_version":    "e2f4d3e-dirty",
     "project_path":       "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER",
     "idf_path":           "/home/cshwstem/esp-vscode/v5.3.1/esp-idf",
     "build_dir":          "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/build",
@@ -125,13 +125,13 @@
             "dir": "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components",
             "type": "LIBRARY",
             "lib": "__idf_components",
-            "reqs": [ "driver", "fatfs" ],
+            "reqs": [ "driver", "fatfs", "esp_timer" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/build/esp-idf/components/libcomponents.a",
-            "sources": [ "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/LCD/lcd.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/LED/led.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/RGB/rgb.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/KEY/key.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/EXIT/exit.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SPI/spi.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SDIO/exfuns.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SDIO/spi_sdcard.c" ],
-            "include_dirs": [ "LCD", "LED", "RGB", "KEY", "EXIT", "SPI", "SDIO" ]
+            "sources": [ "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/LED/led.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/RGB/rgb.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/KEY/key.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/EXIT/exit.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/TIM/tim.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/LCD/lcd-back.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/LCD/lcd.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SPI/spi-back.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SPI/spi.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SDIO/exfuns.c", "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components/SDIO/spi_sdcard.c" ],
+            "include_dirs": [ "LED", "RGB", "KEY", "EXIT", "TIM", "LCD", "SPI", "SDIO" ]
         },
         "console": {
             "alias": "idf::console",
@@ -2856,11 +2856,11 @@
             "prefix": "idf",
             "dir": "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/ESP32-FRONTIER/components",
             "lib": "__idf_components",
-            "reqs": [ "driver", "fatfs" ],
+            "reqs": [ "driver", "fatfs", "esp_timer" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "LCD", "LED", "RGB", "KEY", "EXIT", "SPI", "SDIO" ]
+            "include_dirs": [ "LED", "RGB", "KEY", "EXIT", "TIM", "LCD", "SPI", "SDIO" ]
         }
     },
     "debug_prefix_map_gdbinit": ""
