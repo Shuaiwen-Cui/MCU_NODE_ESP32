@@ -29,7 +29,11 @@
 #include "exit.h"
 #include "lcd.h"
 #include "spi.h"
+#include "esp_rtc.h"
 
+/* Global variables */
+char* weekdays[]={"Sunday","Monday","Tuesday","Wednesday",
+                  "Thursday","Friday","Saterday"};
 
 /**
  * @brief Entry point of the program
@@ -38,11 +42,12 @@
  */
 void app_main(void)
 {
-    uint8_t x = 0;
     esp_err_t ret;
+    uint8_t tbuf[40];
+    uint8_t t = 0;
     
-    
-    ret = nvs_flash_init();
+
+    ret = nvs_flash_init();             
 
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
     {
@@ -50,88 +55,33 @@ void app_main(void)
         ret = nvs_flash_init();
     }
 
-    led_init();
-    spi2_init();
-    lcd_init();
-    vTaskDelay(500);
-    
+    led_init();                         
+    spi2_init();                        
+    lcd_init();                         
+    rtc_set_time(2024,10,18,00,00,00);   
+
     while (1)
     {
-        switch (x)
+        t++;
+
+        if ((t % 10) == 0)              
         {
-            case 0:
-            {
-                lcd_clear(WHITE);
-                break;
-            }
-            case 1:
-            {
-                lcd_clear(BLACK);
-                break;
-            }
-            case 2:
-            {
-                lcd_clear(BLUE);
-                break;
-            }
-            case 3:
-            {
-                lcd_clear(RED);
-                break;
-            }
-            case 4:
-            {
-                lcd_clear(MAGENTA);
-                break;
-            }
-            case 5:
-            {
-                lcd_clear(GREEN);
-                break;
-            }
-            case 6:
-            {
-                lcd_clear(CYAN);
-                break;
-            }
-            case 7:
-            {
-                lcd_clear(YELLOW);
-                break;
-            }
-            case 8:
-            {
-                lcd_clear(BRRED);
-                break;
-            }
-            case 9:
-            {
-                lcd_clear(GRAY);
-                break;
-            }
-            case 10:
-            {
-                lcd_clear(LGRAY);
-                break;
-            }
-            case 11:
-            {
-                lcd_clear(BROWN);
-                break;
-            }
+            rtc_get_time();
+            sprintf((char *)tbuf, "Time:%02d:%02d:%02d", calendar.hour, calendar.min, calendar.sec);
+            printf("Time:%02d:%02d:%02d\r\n", calendar.hour, calendar.min, calendar.sec);
+            lcd_show_string(0, 0, 210, 16, 16, (char *)tbuf,BLUE);
+            sprintf((char *)tbuf, "Date:%04d-%02d-%02d", calendar.year, calendar.month, calendar.date);
+            printf("Date:%02d-%02d-%02d\r\n",  calendar.year,  calendar.month,  calendar.date);
+            lcd_show_string(0, 30, 210, 16, 16, (char *)tbuf,BLUE);
+            sprintf((char *)tbuf, "Week:%s", weekdays[calendar.week - 1]);
+            lcd_show_string(0, 60, 210, 16, 16, (char *)tbuf,BLUE);
         }
 
-        lcd_show_string(0, 0, 240, 32, 32, "ESP32", RED);
-        lcd_show_string(0, 33, 240, 24, 24, "SPILCD TEST", RED);
-        lcd_show_string(0, 60, 240, 16, 16, "CSW@NTU", RED);
-        x++;
-
-        if (x == 12)
+        if ((t % 20) == 0)
         {
-            x = 0;
+            led_toggle();               
         }
 
-        rgb_toggle();
-        vTaskDelay(500);
+        vTaskDelay(10);
     }
 }

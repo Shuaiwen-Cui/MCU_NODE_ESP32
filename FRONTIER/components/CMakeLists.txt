@@ -6,6 +6,7 @@ set(src_dirs
             TIM
             LCD
             SPI
+            RTC
             SDIO
             )
 
@@ -17,6 +18,7 @@ set(include_dirs
             TIM
             LCD
             SPI
+            RTC
             SDIO
             )
 
@@ -24,6 +26,7 @@ set(requires
             driver
             fatfs
             esp_timer
+            newlib
             )
 
 idf_component_register(SRC_DIRS ${src_dirs} INCLUDE_DIRS ${include_dirs} REQUIRES ${requires})

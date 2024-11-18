@@ -57,6 +57,13 @@
 
 >**Sensing**
 
+- [ ] MPU6050
+- [ ] Temperature and humidity sensor (DHT11)
+- [ ] Low-precision accelerometer (ADXL362)
+- [ ] High-precision accelerometer (ADXL355)
+- [ ] Camera module
+- [ ] Audio
+
 >**Communication**
 
 - [ ] WiFi
@@ -87,3 +94,7 @@
 ESP-AI / ESP-DL
 
 ## Middleware - TTNYSHM
+
+
+
+

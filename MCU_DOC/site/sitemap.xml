@@ -8,11 +8,18 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/ARCHITECTURE/architecture/</loc>
+        <loc>https://localhost:8000/ARCHITECTURE/ARCHITECTURE/architecture/</loc>
         <lastmod>2024-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/architecture/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/ARCHITECTURE/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/ARCHITECTURE/architecture/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/ARCHITECTURE/ROADMAP/roadmap/</loc>
+        <lastmod>2024-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/ROADMAP/roadmap/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/ROADMAP/roadmap/"/>
     </url>
     <url>
         <loc>https://localhost:8000/COMMUNICATION/communication/</loc>
@@ -155,11 +162,18 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
     </url>
     <url>
-        <loc>https://localhost:8000/zh/ARCHITECTURE/architecture/</loc>
+        <loc>https://localhost:8000/zh/ARCHITECTURE/ARCHITECTURE/architecture/</loc>
         <lastmod>2024-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/architecture/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/ARCHITECTURE/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/ARCHITECTURE/architecture/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/ARCHITECTURE/ROADMAP/roadmap/</loc>
+        <lastmod>2024-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/ROADMAP/roadmap/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/ROADMAP/roadmap/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/COMMUNICATION/communication/</loc>
