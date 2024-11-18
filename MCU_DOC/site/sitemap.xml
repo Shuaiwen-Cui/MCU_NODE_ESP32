@@ -127,6 +127,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/HARDWARE/hardware/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/MAIN-CONTROL/RTC/rtc/</loc>
+        <lastmod>2024-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/RTC/rtc/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/RTC/rtc/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/MAIN-CONTROL/SPI/spi/</loc>
         <lastmod>2024-11-18</lastmod>
         <changefreq>daily</changefreq>
@@ -279,6 +286,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/HARDWARE/hardware/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/HARDWARE/hardware/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/RTC/rtc/</loc>
+        <lastmod>2024-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/RTC/rtc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/RTC/rtc/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/MAIN-CONTROL/SPI/spi/</loc>
