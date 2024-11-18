@@ -120,6 +120,7 @@ plugins:
             PROJECT INITIALIZATION: 项目初始化
             PROJECT FRAMEWORK: 项目框架
             ARCHITECTURE: 架构
+            ROADMAP: 路线图
             MAIN-CONTROL: 主控
             HARDWARE: 硬件
             ESPTIMER: 定时器
@@ -270,7 +271,8 @@ nav:
       - PROJECT INITIALIZATION: "INSTRUCTIONS/PROJECT-INITIALIZATION/project-initialization.md"
       - PROJECT FRAMEWORK: "INSTRUCTIONS/PROJECT-FRAMEWORK/project-framework.md"
   - ARCHITECTURE:
-      - "ARCHITECTURE/architecture.md"
+      - ARCHITECTURE: "ARCHITECTURE/ARCHITECTURE/architecture.md"
+      - ROADMAP: "ARCHITECTURE/ROADMAP/roadmap.md"
   - MAIN-CONTROL:
       - HARDWARE: "MAIN-CONTROL/HARDWARE/hardware.md"
       - ESPTIMER: "MAIN-CONTROL/ESPTIMER/esptimer.md"

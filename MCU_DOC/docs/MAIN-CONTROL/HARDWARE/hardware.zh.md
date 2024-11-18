@@ -3,8 +3,8 @@
 !!! info "DNESP32S3M"
     本文档使用的硬件平台为正点原子的DNESP32S3M,基于ESP32-S3，如上图所示。相关程序迁移到其他开发板应该也是可以的，但是需要根据实际情况进行适配。
 
+![DNESP32S3M](ATK-DNESP32S3M.png){width=800px}
 ![DNESP32S3M](DNESP32S3M.png){width=800px}
-
 ![DNESP32S3M-BACK](DNESP32S3M-BACK.png){width=800px}
 
 !!! info "DNESP32S3M 硬件特性"
