@@ -124,7 +124,9 @@ plugins:
             MAIN-CONTROL: 主控
             HARDWARE: 硬件
             ESPTIMER: 定时器
+            RTC: 实时时钟
             SPI: 串行外设接口SPI
+            RNG: 随机数发生器
             PERCEPTION: 感知
             BUILT-IN THERMOMETER: 内置温度传感器
             COMMUNICATION: 通信
@@ -277,7 +279,9 @@ nav:
   - MAIN-CONTROL:
       - HARDWARE: "MAIN-CONTROL/HARDWARE/hardware.md"
       - ESPTIMER: "MAIN-CONTROL/ESPTIMER/esptimer.md"
+      - RTC: "MAIN-CONTROL/RTC/rtc.md"
       - SPI: "MAIN-CONTROL/SPI/spi.md"
+      - RNG: "MAIN-CONTROL/RNG/rng.md"
   - PERCEPTION:
       - BUILT-IN THERMOMETER: "PERCEPTION/BUILT-IN-THERMOMETER/built-in-thermometer.md"
   - COMMUNICATION:

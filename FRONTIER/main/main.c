@@ -31,13 +31,16 @@
 #include "spi.h"
 #include "esp_rtc.h"
 #include "temp.h"
+#include "rng.h"
 
 void app_main(void)
 {
-    int16_t temp;
+    uint8_t key;
+    uint32_t random;
+    uint8_t t = 0;
     esp_err_t ret;
-
-    ret = nvs_flash_init(); /* Initialize NVS */
+    
+    ret = nvs_flash_init();                                         /* Initialize NVS */
 
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
     {
@@ -45,38 +48,34 @@ void app_main(void)
         ret = nvs_flash_init();
     }
 
-    led_init();                /* Initialize LED */
-    spi2_init();               /* Initialize SPI2 */
-    lcd_init();                /* Initialize LCD */
-    temperature_sensor_init(); /* Initialize internal temperature sensor */
+    led_init();                                                     /* Initialize LED */
+    spi2_init();                                                    /* Initialize SPI2 */
+    lcd_init();                                                     /* Initialize LCD */
+    key_init();                                                     /* Initialize keys */
+    
+    lcd_show_string(0, 0, 200, 16, 16, "RNG Test", RED);
+    lcd_show_string(0, 20, 200, 16, 16, "BOOT:Get Random Num", RED);
+    lcd_show_string(0, 40, 200, 16, 16, "Num:", RED);
+    lcd_show_string(0, 60, 200, 16, 16, "Num[0-9]:", RED);
 
-    lcd_show_string(0, 0, 200, 16, 16, "TEMPERATURE: 00.00C", BLUE);
-
-    while (1)
+    while(1)
     {
-        temp = sensor_get_temperature(); /* Get temperature value as float */
-
-        /* Display negative sign if temperature is below zero */
-        if (temp < 0)
+        key = key_scan(0);
+        
+        if (key == BOOT)                                            /* Get a random number and display on LCD */
         {
-            temp = -temp;
-            lcd_show_string(0 + 10 * 8, 0, 16, 16, 16, "-", BLUE); /* Display '-' sign */
+            random = rng_get_random_num();
+            lcd_show_num(30 + 8 * 5, 40, random, 10, 16, BLUE);
         }
-        else
+        
+        if ((t % 20) == 0)                                          /* Get a random number [0,9] and display on LCD */
         {
-            lcd_show_string(0 + 10 * 8, 0, 16, 16, 16, " ", BLUE); /* No sign for positive values */
+            led_toggle();                                           /* Toggle LED every 200ms */
+            random = rng_get_random_range(0, 9);                    /* Generate a random number in [0,9] range */
+            lcd_show_num(32 + 8 * 11, 60, random, 1, 16, BLUE);     /* Display the random number */
         }
 
-        /* Display integer part */
-        lcd_show_xnum(0 + 11 * 8, 0, (int)temp, 2, 16, 0, BLUE); /* Convert temp to int for integer part */
-
-        /* Display decimal point */
-        lcd_show_string(0 + 13 * 8, 0, 16, 16, 16, ".", BLUE); /* Display decimal point */
-
-        /* Display fractional part */
-        lcd_show_xnum(0 + 14 * 8, 0, (int)(temp * 100) % 100, 2, 16, 0, BLUE); /* Multiply by 100 to shift two decimal places */
-
-        led_toggle(); /* Toggle LED to indicate program is running */
-        vTaskDelay(250);
+        vTaskDelay(10);
+        t++;
     }
 }

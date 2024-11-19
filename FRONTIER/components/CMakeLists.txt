@@ -8,6 +8,7 @@ set(src_dirs
             SPI
             RTC
             TEMP
+            RNG
             SDIO
             )
 
@@ -21,6 +22,7 @@ set(include_dirs
             SPI
             RTC
             TEMP
+            RNG
             SDIO
             )
 
