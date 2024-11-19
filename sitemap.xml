@@ -120,6 +120,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/ESPTIMER/esptimer/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/MAIN-CONTROL/FS/fs/</loc>
+        <lastmod>2024-11-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/FS/fs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/FS/fs/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/MAIN-CONTROL/HARDWARE/hardware/</loc>
         <lastmod>2024-11-19</lastmod>
         <changefreq>daily</changefreq>
@@ -148,6 +155,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/SPI/spi/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/MAIN-CONTROL/TF-CARD/tf-card/</loc>
+        <lastmod>2024-11-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/TF-CARD/tf-card/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/TF-CARD/tf-card/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/PERCEPTION/perception/</loc>
         <lastmod>2024-11-19</lastmod>
         <changefreq>daily</changefreq>
@@ -167,6 +181,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/DHT11/dht11/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/DHT11/dht11/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/PERCEPTION/MPU6050/mpu6050/</loc>
+        <lastmod>2024-11-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/MPU6050/mpu6050/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/"/>
     </url>
     <url>
         <loc>https://localhost:8000/blog/</loc>
@@ -295,6 +316,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/ESPTIMER/esptimer/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/FS/fs/</loc>
+        <lastmod>2024-11-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/FS/fs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/FS/fs/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/zh/MAIN-CONTROL/HARDWARE/hardware/</loc>
         <lastmod>2024-11-19</lastmod>
         <changefreq>daily</changefreq>
@@ -323,6 +351,13 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/SPI/spi/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/TF-CARD/tf-card/</loc>
+        <lastmod>2024-11-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/TF-CARD/tf-card/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/TF-CARD/tf-card/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/zh/PERCEPTION/perception/</loc>
         <lastmod>2024-11-19</lastmod>
         <changefreq>daily</changefreq>
@@ -342,6 +377,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/DHT11/dht11/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/DHT11/dht11/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/</loc>
+        <lastmod>2024-11-19</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/MPU6050/mpu6050/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/blog/</loc>
