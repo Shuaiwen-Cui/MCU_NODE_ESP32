@@ -1,12 +1,12 @@
 /**
  * @file main.c
- * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
- * @brief 
+ * @author
+ * @brief Main application to demonstrate the use of ESP32 internal temperature sensor
  * @version 1.0
  * @date 2024-11-17
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 
 /* Dependencies */
@@ -30,24 +30,14 @@
 #include "lcd.h"
 #include "spi.h"
 #include "esp_rtc.h"
+#include "temp.h"
 
-/* Global variables */
-char* weekdays[]={"Sunday","Monday","Tuesday","Wednesday",
-                  "Thursday","Friday","Saterday"};
-
-/**
- * @brief Entry point of the program
- * @param None
- * @retval None
- */
 void app_main(void)
 {
+    int16_t temp;
     esp_err_t ret;
-    uint8_t tbuf[40];
-    uint8_t t = 0;
-    
 
-    ret = nvs_flash_init();             
+    ret = nvs_flash_init(); /* Initialize NVS */
 
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
     {
@@ -55,33 +45,38 @@ void app_main(void)
         ret = nvs_flash_init();
     }
 
-    led_init();                         
-    spi2_init();                        
-    lcd_init();                         
-    rtc_set_time(2024,10,18,00,00,00);   
+    led_init();                /* Initialize LED */
+    spi2_init();               /* Initialize SPI2 */
+    lcd_init();                /* Initialize LCD */
+    temperature_sensor_init(); /* Initialize internal temperature sensor */
+
+    lcd_show_string(0, 0, 200, 16, 16, "TEMPERATURE: 00.00C", BLUE);
 
     while (1)
     {
-        t++;
+        temp = sensor_get_temperature(); /* Get temperature value as float */
 
-        if ((t % 10) == 0)              
+        /* Display negative sign if temperature is below zero */
+        if (temp < 0)
         {
-            rtc_get_time();
-            sprintf((char *)tbuf, "Time:%02d:%02d:%02d", calendar.hour, calendar.min, calendar.sec);
-            printf("Time:%02d:%02d:%02d\r\n", calendar.hour, calendar.min, calendar.sec);
-            lcd_show_string(0, 0, 210, 16, 16, (char *)tbuf,BLUE);
-            sprintf((char *)tbuf, "Date:%04d-%02d-%02d", calendar.year, calendar.month, calendar.date);
-            printf("Date:%02d-%02d-%02d\r\n",  calendar.year,  calendar.month,  calendar.date);
-            lcd_show_string(0, 30, 210, 16, 16, (char *)tbuf,BLUE);
-            sprintf((char *)tbuf, "Week:%s", weekdays[calendar.week - 1]);
-            lcd_show_string(0, 60, 210, 16, 16, (char *)tbuf,BLUE);
+            temp = -temp;
+            lcd_show_string(0 + 10 * 8, 0, 16, 16, 16, "-", BLUE); /* Display '-' sign */
+        }
+        else
+        {
+            lcd_show_string(0 + 10 * 8, 0, 16, 16, 16, " ", BLUE); /* No sign for positive values */
         }
 
-        if ((t % 20) == 0)
-        {
-            led_toggle();               
-        }
+        /* Display integer part */
+        lcd_show_xnum(0 + 11 * 8, 0, (int)temp, 2, 16, 0, BLUE); /* Convert temp to int for integer part */
 
-        vTaskDelay(10);
+        /* Display decimal point */
+        lcd_show_string(0 + 13 * 8, 0, 16, 16, 16, ".", BLUE); /* Display decimal point */
+
+        /* Display fractional part */
+        lcd_show_xnum(0 + 14 * 8, 0, (int)(temp * 100) % 100, 2, 16, 0, BLUE); /* Multiply by 100 to shift two decimal places */
+
+        led_toggle(); /* Toggle LED to indicate program is running */
+        vTaskDelay(250);
     }
 }

@@ -7,6 +7,7 @@ set(src_dirs
             LCD
             SPI
             RTC
+            TEMP
             SDIO
             )
 
@@ -19,6 +20,7 @@ set(include_dirs
             LCD
             SPI
             RTC
+            TEMP
             SDIO
             )
 

@@ -126,6 +126,7 @@ plugins:
             ESPTIMER: 定时器
             SPI: 串行外设接口SPI
             PERCEPTION: 感知
+            BUILT-IN THERMOMETER: 内置温度传感器
             COMMUNICATION: 通信
             INTERFACING: 交互
             LED: LED灯
@@ -278,7 +279,7 @@ nav:
       - ESPTIMER: "MAIN-CONTROL/ESPTIMER/esptimer.md"
       - SPI: "MAIN-CONTROL/SPI/spi.md"
   - PERCEPTION:
-      - "PERCEPTION/perception.md"
+      - BUILT-IN THERMOMETER: "PERCEPTION/BUILT-IN-THERMOMETER/built-in-thermometer.md"
   - COMMUNICATION:
       - "COMMUNICATION/communication.md"
   - INTERFACING:

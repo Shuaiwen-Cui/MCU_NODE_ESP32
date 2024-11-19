@@ -49,7 +49,7 @@
 >**Main Control**
 
 - [x] Timer
-- [ ] RTC
+- [x] RTC
 - [x] SPI (SPI2 - LCD control)
 - [ ] TF CARD & SPIFFS
 - [ ] I2C
@@ -57,6 +57,7 @@
 
 >**Sensing**
 
+- [x] ESP built-in thermometer (onboard)
 - [ ] MPU6050
 - [ ] Temperature and humidity sensor (DHT11)
 - [ ] Low-precision accelerometer (ADXL362)
