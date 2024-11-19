@@ -49,9 +49,10 @@
 >**主控**
 
 - [x] 定时器
-- [x] RTC
+- [x] RTC (实时时钟)
 - [x] SPI (SPI2 - LCD控制)
-- [ ] TF CARD & SPIFFS
+- [x] RNG 随机数生成器
+- [ ] TF CARD - SPI
 - [ ] I2C
 - [ ] UART
 
@@ -80,6 +81,10 @@
 
 
 ## 中间件-ESP&三方
+
+>**文件系统**
+
+SPIFFS
 
 >**网络**
 

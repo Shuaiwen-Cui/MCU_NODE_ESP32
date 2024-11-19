@@ -49,9 +49,10 @@
 >**Main Control**
 
 - [x] Timer
-- [x] RTC
+- [x] RTC (Real Time Clock)
 - [x] SPI (SPI2 - LCD control)
-- [ ] TF CARD & SPIFFS
+- [x] RNG Random Number Generator
+- [ ] TF CARD - SPI
 - [ ] I2C
 - [ ] UART
 
