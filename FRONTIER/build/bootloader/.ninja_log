@@ -115,3 +115,5 @@
 4356	4764	1731993692420238194	/home/cshwstem/CSW/Development/MCU_NODE_ESP32/FRONTIER/build/bootloader/.bin_timestamp	2adc91ef096e2028
 4764	4839	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	45407761e1ecdf38
 4764	4839	0	/home/cshwstem/CSW/Development/MCU_NODE_ESP32/FRONTIER/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	45407761e1ecdf38
+2	42	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	45407761e1ecdf38
+2	42	0	/home/cshwstem/CSW/Development/MCU_NODE_ESP32/FRONTIER/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	45407761e1ecdf38

@@ -32,15 +32,14 @@
 #include "esp_rtc.h"
 #include "temp.h"
 #include "rng.h"
+#include "spi_sdcard.h"
 
 void app_main(void)
 {
-    uint8_t key;
-    uint32_t random;
-    uint8_t t = 0;
     esp_err_t ret;
-    
-    ret = nvs_flash_init();                                         /* Initialize NVS */
+    size_t bytes_total, bytes_free;                     /* Total and free space of the SD card */
+
+    ret = nvs_flash_init();                             /* Initialize NVS */
 
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
     {
@@ -48,34 +47,29 @@ void app_main(void)
         ret = nvs_flash_init();
     }
 
-    led_init();                                                     /* Initialize LED */
-    spi2_init();                                                    /* Initialize SPI2 */
-    lcd_init();                                                     /* Initialize LCD */
-    key_init();                                                     /* Initialize keys */
-    
-    lcd_show_string(0, 0, 200, 16, 16, "RNG Test", RED);
-    lcd_show_string(0, 20, 200, 16, 16, "BOOT:Get Random Num", RED);
-    lcd_show_string(0, 40, 200, 16, 16, "Num:", RED);
-    lcd_show_string(0, 60, 200, 16, 16, "Num[0-9]:", RED);
+    led_init();                                         /* Initialize LED */
+    spi2_init();                                        /* Initialize SPI */
+    lcd_init();                                         /* Initialize LCD */
 
-    while(1)
+    while (sd_spi_init())                               /* SD card not detected */
     {
-        key = key_scan(0);
-        
-        if (key == BOOT)                                            /* Get a random number and display on LCD */
-        {
-            random = rng_get_random_num();
-            lcd_show_num(30 + 8 * 5, 40, random, 10, 16, BLUE);
-        }
-        
-        if ((t % 20) == 0)                                          /* Get a random number [0,9] and display on LCD */
-        {
-            led_toggle();                                           /* Toggle LED every 200ms */
-            random = rng_get_random_range(0, 9);                    /* Generate a random number in [0,9] range */
-            lcd_show_num(32 + 8 * 11, 60, random, 1, 16, BLUE);     /* Display the random number */
-        }
+        lcd_show_string(0, 0, 200, 16, 16, "SD Card Error!", RED);
+        vTaskDelay(500);
+        lcd_show_string(0, 20, 200, 16, 16, "Please Check!", RED);
+        vTaskDelay(500);
+    }
 
-        vTaskDelay(10);
-        t++;
+    lcd_show_string(0, 0, 200, 16, 16, "SD Card OK!", RED);
+    lcd_show_string(0, 20, 200, 16, 16, "Total:       MB", RED);
+    lcd_show_string(0, 40, 200, 16, 16, "Free :       MB", RED);
+    sd_get_fatfs_usage(&bytes_total, &bytes_free);
+
+    lcd_show_num(60, 20, (int)bytes_total / 1024, 5, 16, BLUE);
+    lcd_show_num(60, 40, (int)bytes_free / 1024, 5, 16, BLUE);
+
+    while (1)
+    {
+        led_toggle();
+        vTaskDelay(500);
     }
 }
