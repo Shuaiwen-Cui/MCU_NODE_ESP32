@@ -92,7 +92,7 @@ void sd_get_fatfs_usage(size_t *out_total_bytes, size_t *out_free_bytes)
     {
         *out_total_bytes = sd_total_KB;
     }
-    
+
     if (out_free_bytes != NULL)
     {
         *out_free_bytes = sd_free_KB;

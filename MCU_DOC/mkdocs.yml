@@ -128,6 +128,7 @@ plugins:
             SPI: 串行外设接口SPI
             RNG: 随机数发生器
             TF-CARD: TF卡
+            FILE-SYSTEM: 文件系统
             PERCEPTION: 感知
             BUILT-IN THERMOMETER: 内置温度传感器
             COMMUNICATION: 通信
@@ -284,6 +285,7 @@ nav:
       - SPI: "MAIN-CONTROL/SPI/spi.md"
       - RNG: "MAIN-CONTROL/RNG/rng.md"
       - TF-CARD: "MAIN-CONTROL/TF-CARD/tf-card.md"
+      - FILE-SYSTEM: "MAIN-CONTROL/FS/fs.md"
   - PERCEPTION:
       - BUILT-IN THERMOMETER: "PERCEPTION/BUILT-IN-THERMOMETER/built-in-thermometer.md"
   - COMMUNICATION:

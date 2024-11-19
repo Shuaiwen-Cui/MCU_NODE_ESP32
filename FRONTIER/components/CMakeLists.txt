@@ -10,6 +10,7 @@ set(src_dirs
             TEMP
             RNG
             SDIO
+            SPIFFS
             )
 
 set(include_dirs
@@ -24,6 +25,7 @@ set(include_dirs
             TEMP
             RNG
             SDIO
+            SPIFFS
             )
 
 set(requires
@@ -31,6 +33,7 @@ set(requires
             fatfs
             esp_timer
             newlib
+            spiffs
             )
 
 idf_component_register(SRC_DIRS ${src_dirs} INCLUDE_DIRS ${include_dirs} REQUIRES ${requires})
