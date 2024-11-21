@@ -138,6 +138,7 @@ plugins:
             KEY: 按键
             KEY-INTERRUPT: 按键中断
             LCD: 液晶显示屏
+            RELEASE: 发布
 
 # # Hooks
 # hooks:
@@ -298,6 +299,8 @@ nav:
         - KEY: "INTERFACING/KEY/key.md"
         - KEY-INTERRUPT: "INTERFACING/KEY/key-itr.md"
       - LCD: "INTERFACING/LCD/lcd.md"
+  - RELEASE:
+      - RELEASE: "RELEASE/release.md"
 
 
     
