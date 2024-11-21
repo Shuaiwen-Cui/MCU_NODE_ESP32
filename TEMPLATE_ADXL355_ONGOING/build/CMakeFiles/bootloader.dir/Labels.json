@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/CMakeFiles/bootloader"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/CMakeFiles/bootloader.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

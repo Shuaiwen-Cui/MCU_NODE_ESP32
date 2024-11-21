@@ -1831,7 +1831,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_components_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE -B/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build
+  command = /usr/bin/cmake --regenerate-during-build -S/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING -B/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/build
   description = Re-running CMake...
   generator = 1
 

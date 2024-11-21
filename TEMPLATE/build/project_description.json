@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "ESP32_INIT",
-    "project_version":    "557409b2-dirty",
+    "project_version":    "f8f5206d-dirty",
     "project_path":       "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE",
     "idf_path":           "/home/cshwstem/esp-idf/v5.3.1/esp-idf",
     "build_dir":          "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build",

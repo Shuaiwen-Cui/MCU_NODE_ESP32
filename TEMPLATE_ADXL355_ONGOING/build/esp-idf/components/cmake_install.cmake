@@ -1,4 +1,4 @@
-# Install script for directory: /home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/components
+# Install script for directory: /home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE_ADXL355_ONGOING/components
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
