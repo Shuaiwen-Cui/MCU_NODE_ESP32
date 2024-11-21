@@ -42,7 +42,6 @@
 
 - [x] 主控板-LED
 - [x] RGB LED
-- [ ] 按钮
 
 ## 驱动
 
@@ -50,9 +49,9 @@
 
 - [x] 定时器
 - [x] RTC (实时时钟)
-- [x] SPI (SPI2 - LCD控制)
+- [x] SPI (SPI2 - LCD控制/SD卡)
 - [x] RNG 随机数生成器
-- [ ] TF CARD - SPI
+- [x] TF CARD - SPI
 - [ ] I2C
 - [ ] UART
 
@@ -84,7 +83,9 @@
 
 >**文件系统**
 
-SPIFFS
+- [x] VFS
+  - [x] FATFS
+  - [x] SPIFFS
 
 >**网络**
 

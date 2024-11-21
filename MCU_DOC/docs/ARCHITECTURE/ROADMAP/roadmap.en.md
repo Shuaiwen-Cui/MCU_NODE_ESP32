@@ -42,7 +42,6 @@
 
 - [x] Main control board - LED
 - [x] RGB LED
-- [ ] Button
 
 ## Drivers
 
@@ -50,9 +49,9 @@
 
 - [x] Timer
 - [x] RTC (Real Time Clock)
-- [x] SPI (SPI2 - LCD control)
+- [x] SPI (SPI2 - LCD control/SD card)
 - [x] RNG Random Number Generator
-- [ ] TF CARD - SPI
+- [x] TF CARD - SPI
 - [ ] I2C
 - [ ] UART
 
@@ -80,6 +79,11 @@
 - [x] LCD screen
 
 ## Middleware - ESP & Third Party
+
+>**File System**
+- [x] VFS
+  - [x] FATFS
+  - [x] SPIFFS
 
 >**Network**
 

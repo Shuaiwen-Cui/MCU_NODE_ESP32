@@ -11,51 +11,40 @@ In this project, the project code organization structure is as follows:
 
 ```shell
 project-name/
-├── CMakeLists.txt          # Top-level build file for the project
-├── partitions-16MiB.csv    # Partition table
-├── sdkconfig               # Current configuration file
-├── sdkconfig.old           # Old configuration file for reference
-├── main/                   # Main application code
-│   ├── CMakeLists.txt      # Build file for the main directory
-│   ├── main.c              # Entry point of the application
-│   └── app/                # Application logic
-│       ├── app.c           # Application layer implementation
-│       ├── app.h           # Header file for application interface
-│       └── ...             # Additional files
-├── components/             # Peripheral modules
-│   ├── CMakeLists.txt      # Build file for components
-│   ├── led/                # LED module
-│   │   ├── led.c           # Implementation of LED module
-│   │   ├── led.h           # Header file for LED module
+├── CMakeLists.txt          # top-level build file for the project
+├── partitions-16MiB.csv    # partition table
+├── sdkconfig               # current configuration file
+├── sdkconfig.old           # old configuration file for reference
+├── main/                   # main application code
+│   ├── CMakeLists.txt      # build file for the main directory
+│   ├── main.c              # entry point of the application
+│   └── app/                # application logic
+│       ├── app.c           # application layer implementation
+│       ├── app.h           # header file for application interface
+│       └── ...             # additional files
+├── components/             # peripheral modules
+│   ├── CMakeLists.txt      # build file for components
+│   ├── setup/              # setup for components
+│   │   ├── setup.h         # header file for setup module
+│   │   └── setup.c         # implementation of setup module
+│   ├── component1/         # component1 module
+│   │   ├── component1.h    # header file for component1
+│   │   ├── component1.c    # implementation of component1
 │   │   └── ...
-│   ├── rgb/                # RGB module
-│   │   ├── rgb.c           # Implementation of RGB module
-│   │   ├── rgb.h           # Header file for RGB module
+│   └── ...                 # additional peripheral modules
+├── tinyshm/                # tinyshm framework
+│   ├── CMakeLists.txt      # build file for tinyshm
+│   ├── config/             # configuration module
+│   │   ├── config.h        # header file for configuration
+│   │   └── config.c        # implementation of configuration
+│   ├── componentA/         # componenta module
+│   │   ├── componentA.h    # header file for componenta
+│   │   ├── componentA.c    # implementation of componenta
 │   │   └── ...
-│   ├── sensor/             # Sensor module
-│   │   ├── sensor.c        # Implementation of sensor module
-│   │   ├── sensor.h        # Header file for sensor module
-│   │   └── ...
-│   └── ...                 # Additional peripheral modules
-├── tinyshm/                # TinySHM framework
-│   ├── CMakeLists.txt      # Build file for TinySHM
-│   ├── data_processing/    # Data processing module
-│   │   ├── data_proc.c     # Implementation of data processing
-│   │   ├── data_proc.h     # Header file for data processing
-│   │   └── ...
-│   ├── fault_detection/    # Fault detection module
-│   │   ├── fault_detect.c  # Implementation of fault detection
-│   │   ├── fault_detect.h  # Header file for fault detection
-│   │   └── ...
-│   ├── sensor_integration/ # Sensor integration module
-│   │   ├── sensor_integ.c  # Implementation of sensor integration
-│   │   ├── sensor_integ.h  # Header file for sensor integration
-│   │   └── ...
-│   └── ...                 # Additional modules
-├── build/                  # Build directory (auto-generated)
-│   └── ...                 # Files generated during the build process
-└── README.md               # Project documentation
-
+│   └── ...                 # additional modules
+├── build/                  # build directory (auto-generated)
+│   └── ...                 # files generated during the build process
+└── README.md               # project documentation
 ```
 
 !!! note

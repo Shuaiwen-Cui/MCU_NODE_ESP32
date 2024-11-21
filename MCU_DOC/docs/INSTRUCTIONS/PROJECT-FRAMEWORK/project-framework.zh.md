@@ -11,96 +11,40 @@
 
 ```shell
 project-name/
-├── CMakeLists.txt          # 项目顶层构建文件
+├── CMakeLists.txt          # 项目的顶层构建文件
 ├── partitions-16MiB.csv    # 分区表
 ├── sdkconfig               # 当前配置文件
-├── sdkconfig.old           # 旧配置文件
+├── sdkconfig.old           # 旧的配置文件，用作参考
 ├── main/                   # 主应用程序代码
-│   ├── CMakeLists.txt      # Main目录的构建文件
-│   ├── main.c              # 主入口文件
-│   └── app/                # 应用逻辑代码
-│       ├── app.c           # 应用层逻辑
-│       ├── app.h           # 应用接口定义
-│       └── ...
-├── components/             # 外设模块目录
-│   ├── CMakeLists.txt      # 组件目录构建文件
-│   ├── led/                # LED 模块
-│   │   ├── led.c
-│   │   ├── led.h
+│   ├── CMakeLists.txt      # main目录的构建文件
+│   ├── main.c              # 应用程序入口点
+│   └── app/                # 应用程序逻辑
+│       ├── app.c           # 应用层实现
+│       ├── app.h           # 应用接口的头文件
+│       └── ...             # 其他文件
+├── components/             # 外围模块
+│   ├── CMakeLists.txt      # components目录的构建文件
+│   ├── setup/              # setup模块
+│   │   ├── setup.h         # setup模块的头文件
+│   │   └── setup.c         # setup模块的实现
+│   ├── component1/         # component1模块
+│   │   ├── component1.h    # component1的头文件
+│   │   ├── component1.c    # component1的实现
 │   │   └── ...
-│   ├── rgb/                # RGB 模块
-│   │   ├── rgb.c
-│   │   ├── rgb.h
-│   │   └── ...
-│   ├── sensor/             # 传感器模块
-│   │   ├── sensor.c
-│   │   ├── sensor.h
-│   │   └── ...
-│   └── ...                 # 其他外设模块
-├── tinyshm/                # TinySHM 框架代码
-│   ├── CMakeLists.txt      # TinySHM 的构建文件
-│   ├── data_processing/    # 数据处理模块
-│   │   ├── data_proc.c
-│   │   ├── data_proc.h
-│   │   └── ...
-│   ├── fault_detection/    # 故障检测模块
-│   │   ├── fault_detect.c
-│   │   ├── fault_detect.h
-│   │   └── ...
-│   ├── sensor_integration/ # 传感器集成模块
-│   │   ├── sensor_integ.c
-│   │   ├── sensor_integ.h
+│   └── ...                 # 其他外围模块
+├── tinyshm/                # tinyshm框架
+│   ├── CMakeLists.txt      # tinyshm目录的构建文件
+│   ├── config/             # 配置模块
+│   │   ├── config.h        # 配置模块的头文件
+│   │   └── config.c        # 配置模块的实现
+│   ├── componentA/         # componentA模块
+│   │   ├── componentA.h    # componentA的头文件
+│   │   ├── componentA.c    # componentA的实现
 │   │   └── ...
 │   └── ...                 # 其他模块
 ├── build/                  # 构建目录（自动生成）
-│   └── ...                 # 编译过程中生成的文件
-└── README.md               # 项目简介文档
-project-name/
-├── CMakeLists.txt          # 项目顶层构建文件
-├── partitions-16MiB.csv    # 分区表
-├── sdkconfig               # 当前配置文件
-├── sdkconfig.old           # 旧配置文件
-├── main/                   # 主应用程序代码
-│   ├── CMakeLists.txt      # Main目录的构建文件
-│   ├── main.c              # 主入口文件
-│   └── app/                # 应用逻辑代码
-│       ├── app.c           # 应用层逻辑
-│       ├── app.h           # 应用接口定义
-│       └── ...
-├── components/             # 外设模块目录
-│   ├── CMakeLists.txt      # 组件目录构建文件
-│   ├── led/                # LED 模块
-│   │   ├── led.c
-│   │   ├── led.h
-│   │   └── ...
-│   ├── rgb/                # RGB 模块
-│   │   ├── rgb.c
-│   │   ├── rgb.h
-│   │   └── ...
-│   ├── sensor/             # 传感器模块
-│   │   ├── sensor.c
-│   │   ├── sensor.h
-│   │   └── ...
-│   └── ...                 # 其他外设模块
-├── tinyshm/                # TinySHM 框架代码
-│   ├── CMakeLists.txt      # TinySHM 的构建文件
-│   ├── data_processing/    # 数据处理模块
-│   │   ├── data_proc.c
-│   │   ├── data_proc.h
-│   │   └── ...
-│   ├── fault_detection/    # 故障检测模块
-│   │   ├── fault_detect.c
-│   │   ├── fault_detect.h
-│   │   └── ...
-│   ├── sensor_integration/ # 传感器集成模块
-│   │   ├── sensor_integ.c
-│   │   ├── sensor_integ.h
-│   │   └── ...
-│   └── ...                 # 其他模块
-├── build/                  # 构建目录（自动生成）
-│   └── ...                 # 编译过程中生成的文件
-└── README.md               # 项目简介文档
-
+│   └── ...                 # 构建过程中生成的文件
+└── README.md               # 项目文档
 ```
 
 !!! note
