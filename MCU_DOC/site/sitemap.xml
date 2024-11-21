@@ -190,6 +190,13 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/RELEASE/release/</loc>
+        <lastmod>2024-11-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/RELEASE/release/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/RELEASE/release/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/blog/</loc>
         <lastmod>2024-11-21</lastmod>
         <changefreq>daily</changefreq>
@@ -384,6 +391,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/MPU6050/mpu6050/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/RELEASE/release/</loc>
+        <lastmod>2024-11-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/RELEASE/release/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/RELEASE/release/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/blog/</loc>
