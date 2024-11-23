@@ -139,6 +139,7 @@ plugins:
             KEY-INTERRUPT: 按键中断
             LCD: 液晶显示屏
             RELEASE: 发布
+            CODE: 代码
 
 # # Hooks
 # hooks:
@@ -301,6 +302,8 @@ nav:
       - LCD: "INTERFACING/LCD/lcd.md"
   - RELEASE:
       - RELEASE: "RELEASE/release.md"
+  - CODE:
+      - CODE: "CODE/code.md"
 
 
     
