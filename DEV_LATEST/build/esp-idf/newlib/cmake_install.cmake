@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/esp-idf/newlib/port/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST/build/esp-idf/newlib/port/cmake_install.cmake")
 endif()
 

@@ -1,4 +1,4 @@
-/* * Data converted from /home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

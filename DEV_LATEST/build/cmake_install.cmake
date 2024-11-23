@@ -1,4 +1,4 @@
-# Install script for directory: /home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE
+# Install script for directory: /home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/esp-idf/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST/build/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/TEMPLATE/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

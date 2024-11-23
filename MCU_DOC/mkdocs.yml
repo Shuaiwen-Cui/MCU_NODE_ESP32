@@ -140,6 +140,12 @@ plugins:
             LCD: 液晶显示屏
             RELEASE: 发布
             CODE: 代码
+            CMAKE: 项目CMakeLists
+            MAIN: 主程序
+            APP: 应用程序
+            COMPONENTS: 组件
+            TINYSHM: TinySHM库
+
 
 # # Hooks
 # hooks:
@@ -304,6 +310,16 @@ nav:
       - RELEASE: "RELEASE/release.md"
   - CODE:
       - CODE: "CODE/code.md"
+      - CMAKE: "CODE/CMAKE/cmakelists.md"
+      - MAIN:
+        - CMakeLists.txt: "CODE/MAIN/main-cmakelists.md"
+        - MAIN: "CODE/MAIN/main.md"
+        - APP: "CODE/MAIN/APP/app.md"
+      - COMPONENTS:
+        - CMakeLists.txt: "CODE/COMPONENTS/components-cmakelists.md"
+      - TINYSHM:
+        - CMakeLists.txt: "CODE/TINYSHM/tinyshm-cmakelists.md"
+
 
 
     
