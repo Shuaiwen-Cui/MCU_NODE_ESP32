@@ -29,6 +29,62 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/code/"/>
     </url>
     <url>
+        <loc>https://localhost:8000/CODE/CMAKE/cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/CMAKE/cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/CMAKE/cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/COMPONENTS/components-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/COMPONENTS/components-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/COMPONENTS/components-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/COMPONENTS/components/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/COMPONENTS/components/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/COMPONENTS/components/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/MAIN/main-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/main-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/main-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/MAIN/main/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/main/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/main/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/MAIN/APP/app/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/APP/app/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/APP/app/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/TINYSHM/tinyshm-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/TINYSHM/tinyshm-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/TINYSHM/tinyshm-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/CODE/TINYSHM/tinyshm/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/TINYSHM/tinyshm/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/TINYSHM/tinyshm/"/>
+    </url>
+    <url>
         <loc>https://localhost:8000/COMMUNICATION/communication/</loc>
         <lastmod>2024-11-23</lastmod>
         <changefreq>daily</changefreq>
@@ -237,6 +293,62 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/code/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/code/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/CMAKE/cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/CMAKE/cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/CMAKE/cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/COMPONENTS/components-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/COMPONENTS/components-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/COMPONENTS/components-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/COMPONENTS/components/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/COMPONENTS/components/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/COMPONENTS/components/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/MAIN/main-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/main-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/main-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/MAIN/main/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/main/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/main/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/MAIN/APP/app/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/APP/app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/APP/app/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/TINYSHM/tinyshm-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/TINYSHM/tinyshm-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/TINYSHM/tinyshm-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/TINYSHM/tinyshm/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/TINYSHM/tinyshm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/TINYSHM/tinyshm/"/>
     </url>
     <url>
         <loc>https://localhost:8000/zh/COMMUNICATION/communication/</loc>
