@@ -144,7 +144,20 @@ plugins:
             MAIN: 主程序
             APP: 应用程序
             COMPONENTS: 组件
+            SETUP: 设置
+            LED: LED灯
+            RGB: RGB灯
+            KEY: 按键
+            EXIT: 外部中断
+            SPI: 串行外设接口SPI
+            LCD: 液晶显示屏
+            TIM: 定时器
+            RTC: 实时时钟
+            RNG: 随机数发生器
+            SPIFFS: SPIFFS文件系统
+            SDIO: TF卡和FATFS文件系统
             TINYSHM: TinySHM库
+            CONFIG: TinySHM配置
 
 
 # # Hooks
@@ -312,13 +325,27 @@ nav:
       - CODE: "CODE/code.md"
       - CMAKE: "CODE/CMAKE/cmakelists.md"
       - MAIN:
-        - CMakeLists.txt: "CODE/MAIN/main-cmakelists.md"
         - MAIN: "CODE/MAIN/main.md"
         - APP: "CODE/MAIN/APP/app.md"
+        - CMakeLists.txt: "CODE/MAIN/main-cmakelists.md"
       - COMPONENTS:
         - CMakeLists.txt: "CODE/COMPONENTS/components-cmakelists.md"
+        - SETUP: "CODE/COMPONENTS/SETUP/setup.md"
+        - LED: "CODE/COMPONENTS/LED/led.md"
+        - RGB: "CODE/COMPONENTS/RGB/rgb.md"
+        - KEY: "CODE/COMPONENTS/KEY/key.md"
+        - EXIT: "CODE/COMPONENTS/EXIT/exit.md"
+        - SPI: "CODE/COMPONENTS/SPI/spi.md"
+        - LCD: "CODE/COMPONENTS/LCD/lcd.md"
+        - TIM: "CODE/COMPONENTS/TIM/tim.md"
+        - RTC: "CODE/COMPONENTS/RTC/rtc.md"
+        - RNG: "CODE/COMPONENTS/RNG/rng.md"
+        - SPIFFS: "CODE/COMPONENTS/SPIFFS/spiffs.md"
+        - SDIO: "CODE/COMPONENTS/SDIO/sdio.md"
       - TINYSHM:
+        - CONFIG: "CODE/TINYSHM/CONFIG/config.md"
         - CMakeLists.txt: "CODE/TINYSHM/tinyshm-cmakelists.md"
+
 
 
 

@@ -266,4 +266,270 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
     </url>
+    <url>
+        <loc>https://localhost:8000/zh/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/ARCHITECTURE/ARCHITECTURE/architecture/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/ARCHITECTURE/architecture/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/ARCHITECTURE/architecture/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/ARCHITECTURE/ROADMAP/roadmap/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ARCHITECTURE/ROADMAP/roadmap/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ARCHITECTURE/ROADMAP/roadmap/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/code/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/code/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/code/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/CMAKE/cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/CMAKE/cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/CMAKE/cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/COMPONENTS/components-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/COMPONENTS/components-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/COMPONENTS/components-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/COMPONENTS/components/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/COMPONENTS/components/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/COMPONENTS/components/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/MAIN/main-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/main-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/main-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/MAIN/main/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/main/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/main/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/MAIN/APP/app/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/MAIN/APP/app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/MAIN/APP/app/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/TINYSHM/tinyshm-cmakelists/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/TINYSHM/tinyshm-cmakelists/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/TINYSHM/tinyshm-cmakelists/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/CODE/TINYSHM/tinyshm/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/CODE/TINYSHM/tinyshm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/CODE/TINYSHM/tinyshm/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/COMMUNICATION/communication/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/COMMUNICATION/communication/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/COMMUNICATION/communication/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/ESP32/ESP32/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/ESP32/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/ESP32/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/ESP32/ESP_IDF/esp_idf/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/ESP_IDF/esp_idf/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/ESP_IDF/esp_idf/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/ESP32/MICROPYTHON/micropython/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/ESP32/MICROPYTHON/micropython/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/ESP32/MICROPYTHON/micropython/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INSTRUCTIONS/instructions/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INSTRUCTIONS/instructions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INSTRUCTIONS/instructions/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INSTRUCTIONS/PROJECT-FRAMEWORK/project-framework/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INSTRUCTIONS/PROJECT-FRAMEWORK/project-framework/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INSTRUCTIONS/PROJECT-FRAMEWORK/project-framework/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INSTRUCTIONS/PROJECT-INITIALIZATION/project-initialization/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INSTRUCTIONS/PROJECT-INITIALIZATION/project-initialization/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INSTRUCTIONS/PROJECT-INITIALIZATION/project-initialization/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INTERFACING/interfacing/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/interfacing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/interfacing/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INTERFACING/KEY/key-itr/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/KEY/key-itr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/KEY/key-itr/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INTERFACING/KEY/key/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/KEY/key/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/KEY/key/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INTERFACING/LCD/lcd/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/LCD/lcd/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/LCD/lcd/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INTERFACING/LED/led/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/LED/led/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/LED/led/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/INTERFACING/RGB/rgb/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/INTERFACING/RGB/rgb/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/INTERFACING/RGB/rgb/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/ESPTIMER/esptimer/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/ESPTIMER/esptimer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/ESPTIMER/esptimer/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/FS/fs/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/FS/fs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/FS/fs/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/HARDWARE/hardware/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/HARDWARE/hardware/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/HARDWARE/hardware/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/RNG/rng/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/RNG/rng/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/RNG/rng/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/RTC/rtc/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/RTC/rtc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/RTC/rtc/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/SPI/spi/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/SPI/spi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/SPI/spi/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/MAIN-CONTROL/TF-CARD/tf-card/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/MAIN-CONTROL/TF-CARD/tf-card/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/MAIN-CONTROL/TF-CARD/tf-card/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/PERCEPTION/perception/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/perception/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/perception/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/PERCEPTION/BUILT-IN-THERMOMETER/built-in-thermometer/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/BUILT-IN-THERMOMETER/built-in-thermometer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/BUILT-IN-THERMOMETER/built-in-thermometer/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/PERCEPTION/DHT11/dht11/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/DHT11/dht11/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/DHT11/dht11/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/PERCEPTION/MPU6050/mpu6050/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/PERCEPTION/MPU6050/mpu6050/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/RELEASE/release/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/RELEASE/release/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/RELEASE/release/"/>
+    </url>
+    <url>
+        <loc>https://localhost:8000/zh/blog/</loc>
+        <lastmod>2024-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://localhost:8000/zh/blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://localhost:8000/blog/"/>
+    </url>
 </urlset>
