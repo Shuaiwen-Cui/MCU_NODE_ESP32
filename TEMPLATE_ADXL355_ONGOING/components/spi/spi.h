@@ -81,4 +81,4 @@ void spi3_write_data(spi_device_handle_t handle, const uint8_t *data, int len);
  */
 uint8_t spi3_transfer_byte(spi_device_handle_t handle, uint8_t data);
 
-#endif
+#endif /* __SPI_H__ */

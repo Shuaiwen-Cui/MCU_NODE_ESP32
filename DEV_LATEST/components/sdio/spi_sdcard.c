@@ -72,7 +72,7 @@ esp_err_t sd_card_init(void)
     // This initialization does not include card detection (CD) and write protection (WP) signals.
     // If your board has these signals, modify slot_config.gpio_cd and slot_config.gpio_wp.
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
-    slot_config.gpio_cs = PIN_NUM_CS;
+    slot_config.gpio_cs = SD_PIN_NUM_CS;
     slot_config.host_id = host.slot;
 
     // Use SPI mode to drive the SD card and mount the FATFS file system

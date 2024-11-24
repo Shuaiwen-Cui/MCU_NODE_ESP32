@@ -18,7 +18,7 @@
 /* FUNCTION DECLARATIONS */
 
 /**
- * @brief       Initialize SPI
+ * @brief       Initialize SPI2
  * @param       None
  * @retval      None
  */
@@ -47,6 +47,38 @@ void spi2_write_data(spi_device_handle_t handle, const uint8_t *data, int len);
  * @param       data         : Data to send
  * @retval      t.rx_data[0] : Received data
  */
-uint8_t spi2_transfer_byte(spi_device_handle_t handle, uint8_t byte);        
+uint8_t spi2_transfer_byte(spi_device_handle_t handle, uint8_t byte);     
 
-#endif
+/**
+ * @brief       Initialize SPI3
+ * @param       None
+ * @retval      None
+ */
+void spi3_init(void);
+
+/**
+ * @brief       Send command via SPI
+ * @param       handle : SPI handle
+ * @param       cmd    : Command to send
+ * @retval      None
+ */
+void spi3_write_cmd(spi_device_handle_t handle, uint8_t cmd);
+
+/**
+ * @brief       Send data via SPI
+ * @param       handle : SPI handle
+ * @param       data   : Data to send
+ * @param       len    : Length of data to send
+ * @retval      None
+ */
+void spi3_write_data(spi_device_handle_t handle, const uint8_t *data, int len);
+
+/**
+ * @brief       Process data via SPI
+ * @param       handle       : SPI handle
+ * @param       data         : Data to send
+ * @retval      t.rx_data[0] : Received data
+ */
+uint8_t spi3_transfer_byte(spi_device_handle_t handle, uint8_t data);
+
+#endif /* __SPI_H__ */

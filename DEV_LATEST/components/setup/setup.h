@@ -1,6 +1,6 @@
 /**
  * @file setup.h
- * @author SHUAIWEN CUI (SHUAIWEN001@e.ntu.edu.sg)
+ * @author SHUAIWEN
  * @brief This file contains the configurations to setup the node. SETUP -> BSP/TINYSHM -> MAIN.H -> APP -> MAIN.C
  * @version 1.0
  * @date 2024-11-20
@@ -14,7 +14,7 @@
 
 /* DEPENDENCIES */
 
-// C Stardard Libraries
+// C Standard Libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -78,9 +78,13 @@
 #define BOOT_INT_GPIO_PIN GPIO_NUM_0 /* GPIO port connected to BOOT key interrupt */
 
 // SPI
-#define SPI_MOSI_GPIO_PIN GPIO_NUM_11 /* SPI2_MOSI */
-#define SPI_CLK_GPIO_PIN GPIO_NUM_12  /* SPI2_CLK */
-#define SPI_MISO_GPIO_PIN GPIO_NUM_13 /* SPI2_MISO */
+#define SPI2_MOSI_GPIO_PIN GPIO_NUM_11 /* SPI2_MOSI */
+#define SPI2_CLK_GPIO_PIN GPIO_NUM_12  /* SPI2_CLK */
+#define SPI2_MISO_GPIO_PIN GPIO_NUM_13 /* SPI2_MISO */
+
+#define SPI3_MOSI_GPIO_PIN GPIO_NUM_40 /* SPI3_MOSI */
+#define SPI3_MISO_GPIO_PIN GPIO_NUM_41 /* SPI3_MISO */
+#define SPI3_CLK_GPIO_PIN GPIO_NUM_42  /* SPI3_CLK */
 
 // LCD
 #define LCD_NUM_RST GPIO_NUM_38 /* Reset pin */
@@ -91,13 +95,19 @@
 // SD - note the pins below are actually the same as the SPI pins.
 #define USE_SPI_MODE
 #ifdef USE_SPI_MODE
-// 使用SPI模式时的引脚映射通过此映射，SD卡既可以在SPI模式下使用，也可以在1线SD模式下使用。
-// 请注意，在SD模式下，需要在CS线上上拉。
-#define PIN_NUM_MISO  GPIO_NUM_13
-#define PIN_NUM_MOSI  GPIO_NUM_11
-#define PIN_NUM_CLK   GPIO_NUM_12
-#define PIN_NUM_CS    GPIO_NUM_2
+// When using SPI mode, the pin mapping allows the SD card to be used in both SPI mode and 1-line SD mode.
+// Note: When in SD mode, a pull-up resistor is required on the CS line.
+#define SD_PIN_NUM_CS    GPIO_NUM_2
+#define SD_PIN_NUM_MOSI  GPIO_NUM_11
+#define SD_PIN_NUM_CLK   GPIO_NUM_12
+#define SD_PIN_NUM_MISO  GPIO_NUM_13
 #endif //USE_SPI_MODE
+
+// SPI3 - ADXL355
+#define CS_ADXL355           GPIO_NUM_39
+#define ADXL355_PIN_NUM_MOSI GPIO_NUM_40
+#define ADXL355_PIN_NUM_MISO GPIO_NUM_41
+#define ADXL355_PIN_NUM_CLK  GPIO_NUM_42
 
 /* GPIO States */
 
@@ -128,9 +138,10 @@
 #define SPI_DMA_CHAN    1
 #endif //SPI_DMA_CHAN
 
-// 在测试SD和SPI模式时，请记住，一旦在SPI模式下初始化了卡，就无法在没有切换卡电源的情况下在SD模式下重新将其初始化。
+// Note: When testing SD and SPI modes, remember that once the card has been initialized in SPI mode, 
+// it cannot be reinitialized in SD mode without switching card power.
 
-/* VARIBLES */
+/* VARIABLES */
 
 // TAGs
 extern const char *TAG_SD;
