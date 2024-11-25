@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/build/bootloader/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

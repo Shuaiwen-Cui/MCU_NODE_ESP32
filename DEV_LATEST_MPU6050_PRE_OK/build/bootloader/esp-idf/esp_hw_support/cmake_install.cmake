@@ -39,11 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/build/bootloader/esp-idf/esp_hw_support/port/esp32s3/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/build/bootloader/esp-idf/esp_hw_support/lowpower/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/build/bootloader/esp-idf/esp_hw_support/lowpower/cmake_install.cmake")
 endif()
 

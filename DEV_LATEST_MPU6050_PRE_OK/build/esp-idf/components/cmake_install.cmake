@@ -1,4 +1,4 @@
-# Install script for directory: /home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/components
+# Install script for directory: /home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/components
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

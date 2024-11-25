@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/build/esp-idf/mbedtls/mbedtls/3rdparty/everest/cmake_install.cmake")
-  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST copy 2/build/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/build/esp-idf/mbedtls/mbedtls/3rdparty/everest/cmake_install.cmake")
+  include("/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050_PRE_OK/build/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/cmake_install.cmake")
 
 endif()
 
