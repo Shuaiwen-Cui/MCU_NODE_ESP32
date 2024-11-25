@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "ESP32",
-    "project_version":    "b83ca5ef-dirty",
+    "project_version":    "d5451313-dirty",
     "project_path":       "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050",
     "idf_path":           "/home/cshwstem/esp-idf/v5.3.1/esp-idf",
     "build_dir":          "/home/cshwstem/CSW/Development/MCU_NODE_ESP32/DEV_LATEST_MPU6050/build",

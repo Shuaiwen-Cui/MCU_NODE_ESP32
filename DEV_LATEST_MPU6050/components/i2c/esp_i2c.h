@@ -13,8 +13,6 @@
 #include "setup.h"
 
 /* DEFINITIONS */
-#define I2C_NUM0_SCL_PIN GPIO_NUM_1
-#define I2C_NUM0_SDA_PIN GPIO_NUM_2
 
 
 /* FUNCTION DECLARATIONS */

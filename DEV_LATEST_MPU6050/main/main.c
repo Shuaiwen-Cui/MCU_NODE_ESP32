@@ -13,8 +13,8 @@
 #include "main.h"
 
 /* Variables */
-uint8_t ID;								//定义用于存放ID号的变量
-int16_t AX, AY, AZ, GX, GY, GZ;			//定义用于存放各个数据的变量
+uint8_t ID;								// MPU6050 ID
+int16_t AX, AY, AZ, GX, GY, GZ;			// Accelerometer and gyroscope data
 
 /**
  * @brief Entry point of the program
@@ -55,7 +55,7 @@ void app_main(void)
     exit_init();
     spi2_init();
     lcd_init();
-    i2c_num0_init();
+
 
     // esptim_int_init(1000000); // 1s enable timer, of which the callback function toggles the LED
     rtc_set_time(2024,11,20,18,22,00); 
@@ -86,20 +86,19 @@ void app_main(void)
 
     sd_card_test_filesystem();                                        /* Run SD card test */
 
-
+    i2c_num0_init();
     MPU6050_Init();
-    ID=MPU6050_GetID();//获取设备ID
+    ID=MPU6050_GetID();
     ESP_LOGI("MPU6050 ID","#%x\n",ID);
 
     // sd_card_unmount();
 
     while (1)
     {
-        // led_toggle();
-        // rgb_toggle();
+        led_toggle();
+        rgb_toggle();
         // vTaskDelay(1000);
-		MPU6050_GetData(&AX, &AY, &AZ, &GX, &GY, &GZ);//把六个变量的地址传递过去
-        //显示六元组数据
+		MPU6050_GetData(&AX, &AY, &AZ, &GX, &GY, &GZ); 
         ESP_LOGI("MPU6050", "AccX:%d, AccY:%d, AccZ:%d, GyroX:%d, GyroY:%d, GyroZ:%d\n", AX, AY, AZ, GX, GY, GZ);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
